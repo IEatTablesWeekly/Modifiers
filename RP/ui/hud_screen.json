@@ -1,0 +1,14 @@
+{
+  "namespace": "hud",
+  "hud_actionbar_text": {
+    "type": "image",
+    "size": [
+      "100%c", 
+      "100%c"
+    ],
+    "offset": [
+      "10%-280px",
+      "50%-25px"
+    ]
+  }
+}

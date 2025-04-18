@@ -1,0 +1,35 @@
+{
+    "format_version": 2,
+    "metadata": {
+        "authors": [
+            "IEatTablesWeekly",
+            "Ricecake"
+        ]
+    },
+    "header": {
+        "name": "§7[1.0] §rModifiers §7[BP]",
+        "description": "Modifiers adds randomly-assigned modifiers to tools and armor, that add small buffs or debuffs to the player. These modifiers are assigned when the item is first equipped or held. Made by IEatTablesWeekly & Ricecake",
+        "min_engine_version": [1, 20, 1],
+        "uuid": "1cbd087a-7cd6-48c3-8173-58aefa6d17ae",
+        "version": [1, 0, 0]
+    },
+    "modules": [
+        {
+            "type": "script",
+            "language": "javascript",
+            "uuid": "6b673295-5a41-41d4-8571-7c91294c50c1",
+            "entry": "scripts/main.js",
+            "version": [1, 0, 0]
+        }
+    ],
+    "dependencies": [
+        {
+            "module_name": "@minecraft/server",
+            "version": "1.17.0"
+        },
+        {
+            "uuid": "d3ddc6d7-19a7-4f9f-8562-1f4011836626",
+            "version": [1, 0, 0]
+        }
+    ]
+}
