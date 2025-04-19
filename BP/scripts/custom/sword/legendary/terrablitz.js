@@ -4,8 +4,9 @@ import { hasLoreInHeldItem, toAllPlayers } from '../../../utils/utils.js';
 function applyTerrablitz(player) {
     if (!hasLoreInHeldItem(player, "terra")) return;  
 
-    player.addEffect("speed", TicksPerSecond * 30, { amplifier: 3, showParticles: false });        
-    player.addEffect("jump_boost", TicksPerSecond * 30, { amplifier: 1, showParticles: false });        
+    player.addEffect("speed", TicksPerSecond * 2, { amplifier: 6, showParticles: false });        
+    player.addEffect("jump_boost", TicksPerSecond * 2, { amplifier: 2, showParticles: false });        
+  
     player.onScreenDisplay.setActionBar('§r[§qTerrablitz§r]');
     player.playSound('beacon.activate');
 
