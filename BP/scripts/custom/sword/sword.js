@@ -1,35 +1,7 @@
 import "./ability";
-import { toAllPlayers } from "../../utils/utils";
+import { toAllPlayers, processInventoryWithModifiers } from "../../utils/utils";
 
-const RARITIES = {
-    common: {
-        chance: 40,
-        color: "§r§7",
-        displayName: " Common (40%)"
-    },
-    uncommon: {
-        chance: 30,
-        color: "§r§a",
-        displayName: " Uncommon (30%)"
-    },
-    rare: {
-        chance: 20,
-        color: "§r§9",
-        displayName: " Rare (20%)"
-    },
-    epic: {
-        chance: 8,
-        color: "§r§5",
-        displayName: " Epic (8%)"
-    },
-    legendary: {
-        chance: 2,
-        color: "§r§6",
-        displayName: " Legendary (2%)"
-    }
-};
-
-const weaponKeywords = [
+const swordKeywords = [
     "sword", "katana", "scimitar", "blade", "saber", "cutlass", "rapier", "edge", 
     "shortsword", "longsword", "broadsword", "claymore", "greatsword", 
     "falchion", "zweihander", "gladius", "spatha", "kurkri", "waraxe", "battleaxe", 
@@ -89,64 +61,7 @@ const ABILITIES = {
     ]
 };
 
-function getRandomRarity() {
-    const total = Object.values(RARITIES).reduce((sum, r) => sum + r.chance, 0);
-    let roll = Math.random() * total;
-    
-    for (const [key, rarity] of Object.entries(RARITIES)) {
-        if (roll < rarity.chance) return { ...rarity, key };
-        roll -= rarity.chance;
-    }
-    return RARITIES.common;
-}
+toAllPlayers(player => {
+    processInventoryWithModifiers(player, swordKeywords, ABILITIES);
+}, 20);
 
-function processPlayerInventory(player) { 
-    try {
-        const inventory = player.getComponent('minecraft:inventory')?.container;
-        if (!inventory) return;
-
-        for (let i = 0; i < inventory.size; i++) {
-            const item = inventory.getItem(i);
-            if (!item) continue;
-
-            const id = item.typeId.toLowerCase();
-            const isWeapon = weaponKeywords.some(keyword => id.includes(keyword));
-            if (!isWeapon || item.getLore().length > 0) continue;
-
-            let rarity;
-            do {
-                rarity = getRandomRarity();
-            } while (
-                (rarity.key === "legendary" || rarity.key === "epic") &&
-                ["wooden", "stone", "gold", "iron"].some(material => id.includes(material))
-            );
-
-            const abilities = ABILITIES[rarity.key];
-            const ability = abilities[Math.floor(Math.random() * abilities.length)];
-
-            try {
-                item.setLore([
-                    `${ability.color}${ability.name}`,
-                    `§7${ability.description}`,
-                    `${rarity.color}${rarity.displayName}`
-                ]);
-            
-                const rawName = item.typeId.split(":")[1]?.replace(/_/g, " ") ?? "Weapon";
-            
-                const formattedName = rawName.replace(/\b\w/g, c => c.toUpperCase());
-            
-                item.nameTag = `${rarity.color}${formattedName}`;
-            
-                inventory.setItem(i, item);
-            } catch (e) {
-                console.warn("[IEatTablesWeekly][V1.0][Modifiers][While setting item metadata]", e);
-            }
-            
-        }
-    } catch (err) {
-        console.warn("[IEatTablesWeekly][V1.0][Modifiers][While processing player inventory]:", err);
-    }
-}
-
-
-toAllPlayers(processPlayerInventory,20)
