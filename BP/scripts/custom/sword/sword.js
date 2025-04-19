@@ -139,7 +139,7 @@ function processPlayerInventory(player) {
             
                 inventory.setItem(i, item);
             } catch (e) {
-                console.warn("[IEatTablesWeekly][V1.0][Modifiers][While setting item metadata.]", e);
+                console.warn("[IEatTablesWeekly][V1.0][Modifiers][While setting item metadata]", e);
             }
             
         }
