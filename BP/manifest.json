@@ -9,7 +9,7 @@
     "header": {
         "name": "§7[1.0] §rModifiers §7[BP]",
         "description": "Modifiers adds randomly-assigned modifiers to tools and armor, that add small buffs or debuffs to the player. These modifiers are assigned when the item is first equipped or held. Made by IEatTablesWeekly & Ricecake",
-        "min_engine_version": [1, 20, 1],
+        "min_engine_version": [1, 21, 70],
         "uuid": "1cbd087a-7cd6-48c3-8173-58aefa6d17ae",
         "version": [1, 0, 0]
     },
