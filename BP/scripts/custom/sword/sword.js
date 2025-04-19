@@ -16,12 +16,12 @@ const swordKeywords = [
 
 const ABILITIES = {
     common: [
-        { name: "Sharp", description: "- [§a+§7§o] Increases damage dealt to enemies by 10%.", color: "§r§r",},
-        { name: "Reinforced", description: "- [§a+§7§o] 10% chance to regain lost durability on use.", color: "§r§7" },
-        { name: "Swift", description: "- [§a+§7§o] Increases attack & mining speed when held.", color: "§r§a" },
-        { name: "Dull", description: "- [§c-§7§o] Decreases damage dealt to enemies by 10%.", color: "§r§7" },
-        { name: "Worn", description: "- [§c-§7§o] 10% chance to lose twice the durability on use.", color: "§r§7" },
-        { name: "Heavy", description: "- [§c-§7§o] Decreases movement and mining speed drastically.", color: "§r§7" }
+        { name: "Sharp", description: "- [§a+§7§o] Increases damage dealt to enemies by 10%.", color: "§r§r"},
+        { name: "Reinforced", description: "- [§a+§7§o] 10% chance to regain lost durability on use.", color: "§r§7"},
+        { name: "Swift", description: "- [§a+§7§o] Increases attack & mining speed when held.", color: "§r§a"},
+        { name: "Dull", description: "- [§c-§7§o] Decreases damage dealt to enemies by 10%.", color: "§r§7"},
+        { name: "Worn", description: "- [§c-§7§o] 10% chance to lose twice the durability on use.", color: "§r§7"},
+        { name: "Heavy", description: "- [§c-§7§o] Decreases movement and mining speed drastically.", color: "§r§7"}
     ],
     uncommon: [
         { name: "Precise", description: "- [§a+§7§o] 10% chance to land a critical hit with 150% damage.", color: "§r§b" },
@@ -55,7 +55,7 @@ const ABILITIES = {
         { name: "Aegis", description: "- [§a+§7§o] Creates a protective aura around the user,\n reflecting all damage and healing them significantly,\neffectively making them immortal.", color: "§r§q" },
         { name: "Timepiercer", description: "- [§a+§7§o] Attacks stop enemies in time, preventing them from moving or performing any action.", color: "§r§2" },
         { name: "Shadowstep", description: "- [§a+§7§o] Step into the shadow realm, manifesting yourself \nas a shadow of pure energy behind the enemy.", color: "§r§8" },
-        { name: "Terra§qblitz", description: "- [§a+§7§o] Grants the user enhanced movement abilities \nto effortlessly traverse the terrain.\nSignificantly hinders nearby enemies when held.", color: "§n" },
+        { name: "Terra§qblitz", description: "- [§a+§7§o] Grants the user enhanced movement abilities \nto effortlessly traverse the terrain.\nSignificantly hinders nearby enemies when held.", color: "§r§n" },
         { name: "Windcutter", description: "- [§a+§7§o] Sends enemies flying through the wind using strong gale slashes.", color: "§r§a" },
         { name: "Sentinel", description: "- [§a+§7§o] Summons a vigilant forcefield that knocks enemies away with immense power.", color: "§r§s" }
     ]
