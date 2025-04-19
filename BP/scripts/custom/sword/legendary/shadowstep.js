@@ -73,6 +73,7 @@ world.afterEvents.entityHurt.subscribe((event) => {
         "minecraft:snow_layer",
         "minecraft:grass",
         "minecraft:tall_grass",
+        "minecraft:bush",
         "minecraft:fern",
         "minecraft:large_fern",
         "minecraft:dead_bush",
