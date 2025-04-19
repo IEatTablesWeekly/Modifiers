@@ -1,4 +1,5 @@
 import { hasLoreInHeldItem , toAllPlayers } from '../../../utils/utils.js';
+import { TicksPerSecond } from '@minecraft/server'
 
 function tryApplySwift(player) {
     if (!hasLoreInHeldItem(player, 'swift')) return;
