@@ -46,7 +46,7 @@ const ABILITIES = {
     common: [
         { name: "Sharp", description: "- [§a+§7§o] Increases damage dealt to enemies by 10%.", color: "§r§r",},
         { name: "Reinforced", description: "- [§a+§7§o] 10% chance to regain lost durability on use.", color: "§r§7" },
-        { name: "Swift", description: "- [§a+§7§o] Increases attack speed and mine speed when held.", color: "§r§a" },
+        { name: "Swift", description: "- [§a+§7§o] Increases attack & mining speed when held.", color: "§r§a" },
         { name: "Dull", description: "- [§c-§7§o] Decreases damage dealt to enemies by 10%.", color: "§r§7" },
         { name: "Worn", description: "- [§c-§7§o] 10% chance to lose twice the durability on use.", color: "§r§7" },
         { name: "Heavy", description: "- [§c-§7§o] Decreases movement and mining speed drastically.", color: "§r§7" }
@@ -54,7 +54,7 @@ const ABILITIES = {
     uncommon: [
         { name: "Precise", description: "- [§a+§7§o] 10% chance to land a critical hit with 150% damage.", color: "§r§b" },
         { name: "Forceful", description: "- [§a+§7§o] Makes enemies take twice the amount of knockback.", color: "§r§7" },
-        { name: "Lucky", description: "- [§a+§7§o] Increases loot dropped by mobs slightly.", color: "§r§g" },
+        { name: "Lucky", description: "- [§a+§7§o] When you hit a mob, it has a low chance of dropping valuables.", color: "§r§g" },
         { name: "Cracked", description: "- [§c-§7§o] 20% chance to lose twice the durability on use.", color: "§r§c" },
         { name: "Unstable", description: "- [§c-§7§o] 0.1% chance for the item to randomly break when used.", color: "§r§8" },
         { name: "Feeble", description: "- [§c-§7§o] 10% chance to land a weak hit with 50% damage.", color: "§r§p" }
@@ -72,7 +72,7 @@ const ABILITIES = {
     ],
     epic: [
         { name: "Resilience", description: "- [§a+§7§o] Protects you from 40% of incoming damage when held.", color: "§r§8" },
-        { name: "Stormcaller's Edge", description: "- [§a+§7§o] 50% to strike the enemy with the wrath of Zeus on use.", color: "§r§t" },
+        { name: "Stormcaller's Edge", description: "- [§a+§7§o] 50% chance to strike the enemy with the wrath of Zeus on use.", color: "§r§t" },
         { name: "Lifedrain", description: "- [§a+§7§o] 25% chance to steal a heart from the enemy.", color: "§r§4" },
         { name: "Galeblade", description: "- [§a+§7§o] 20% chance to knock the enemy high up in the wind.", color: "§r§q" },
         { name: "Bound to Darkness", description: "- [§c-§7§o] Channels the Strength of Darkness into user, causing loss of vision in exchange for power.", color: "§r§8" },
@@ -84,7 +84,8 @@ const ABILITIES = {
         { name: "Timepiercer", description: "- [§a+§7§o] Attacks stop enemies in time, preventing them from moving or performing any action.", color: "§r§2" },
         { name: "Shadowstep", description: "- [§a+§7§o] Step into the shadow realm, manifesting yourself \nas a shadow of pure energy behind the enemy.", color: "§r§8" },
         { name: "Terra§qblitz", description: "- [§a+§7§o] Grants the user enhanced movement abilities \nto effortlessly traverse the terrain.\nSignificantly hinders nearby enemies when held.", color: "§n" },
-        { name: "Windcutter", description: "- [§a+§7§o] Sends enemies flying through the using strong gale slashes.", color: "§r§a" }
+        { name: "Windcutter", description: "- [§a+§7§o] Sends enemies flying through the wind using strong gale slashes.", color: "§r§a" },
+        { name: "Sentinel", description: "- [§a+§7§o] Summons a vigilant forcefield that knocks enemies away with immense power.", color: "§r§s" }
     ]
 };
 
@@ -103,6 +104,7 @@ function processPlayerInventory(player) {
     try {
         const inventory = player.getComponent('minecraft:inventory')?.container;
         if (!inventory) return;
+
         for (let i = 0; i < inventory.size; i++) {
             const item = inventory.getItem(i);
             if (!item) continue;
@@ -118,10 +120,9 @@ function processPlayerInventory(player) {
                 (rarity.key === "legendary" || rarity.key === "epic") &&
                 ["wooden", "stone", "gold", "iron"].some(material => id.includes(material))
             );
-            
+
             const abilities = ABILITIES[rarity.key];
             const ability = abilities[Math.floor(Math.random() * abilities.length)];
-            
 
             try {
                 item.setLore([
@@ -129,10 +130,23 @@ function processPlayerInventory(player) {
                     `§7${ability.description}`,
                     `${rarity.color}${rarity.displayName}`
                 ]);
+            
+                const rawName = item.typeId.split(":")[1]?.replace(/_/g, " ") ?? "Weapon";
+            
+                const formattedName = rawName.replace(/\b\w/g, c => c.toUpperCase());
+            
+                item.nameTag = `${rarity.color}${formattedName}`;
+            
                 inventory.setItem(i, item);
-            } catch {}
+            } catch (e) {
+                console.warn("[IEatTablesWeekly][V1.0][Modifiers][While setting item metadata.]", e);
+            }
+            
         }
-    } catch {}
+    } catch (err) {
+        console.warn("[IEatTablesWeekly][V1.0][Modifiers][While processing player inventory]:", err);
+    }
 }
 
-toAllPlayers(processPlayerInventory,25)
+
+toAllPlayers(processPlayerInventory,20)

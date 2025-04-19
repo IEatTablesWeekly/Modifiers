@@ -3,3 +3,4 @@ import "./forceful";
 import "./unstable";
 import "./feeble";
 import "./cracked"
+import "./lucky"

@@ -3,13 +3,21 @@ import { hasLoreInHeldItem, toAllPlayers } from '../../../utils/utils.js';
 
 function applyCharged(player) {
     if (!hasLoreInHeldItem(player, 'charged')) return;
-    if (player.getComponent("health")?.currentValue === player.getComponent("health")?.defaultValue) {
-        player.runCommandAsync("effect @s strength 3 1 true");
-        player.runCommandAsync(`title @s actionbar §r[§uCharged§r]`);
-        player.runCommandAsync(`playsound beacon.activate @s ~ ~ ~`);
+
+    const health = player.getComponent("health");
+    if (!health) return;
+
+    if (health.currentValue === health.defaultValue) {
+        player.addEffect("strength", TicksPerSecond * 2, {
+            amplifier: 2,
+            showParticles: false
+        });
+
+        player.onScreenDisplay.setActionBar('§r[§uCharged§r]');
+        player.playSound("beacon.activate");
     }
 }
 
-toAllPlayers(applyCharged, TicksPerSecond * 0.5);
+toAllPlayers(applyCharged);
 
 

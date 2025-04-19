@@ -17,7 +17,7 @@ world.afterEvents.entityHurt.subscribe((event) => {
         damagedEntity.runCommandAsync('summon minecraft:lightning_bolt')
 
         system.runTimeout(() => {
-            damagedEntity.applyDamage(15);
-        }, TicksPerSecond * 0.5);
+            damagedEntity.applyDamage(15, {cause:"lightning", damagedEntity: attacker});
+        }, 10);
     }
 });

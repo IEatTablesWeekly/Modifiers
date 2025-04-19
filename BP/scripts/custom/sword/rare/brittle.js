@@ -8,7 +8,7 @@ function tryApplyUnstable(player) {
         const inventory = player.getComponent('minecraft:inventory')?.container;
         if (!inventory) return;
 
-        player.playSound('random.orb');
+        player.playSound('random.break');
         player.onScreenDisplay.setActionBar('§r[§7Brittle§r]');
         inventory.setItem(player.selectedSlotIndex, null);
     }

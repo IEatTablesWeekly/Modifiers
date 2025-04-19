@@ -21,7 +21,7 @@ world.afterEvents.entityHurt.subscribe((event) => {
     
 
     if (attacker && attacker.isValid()) {
-        attacker.applyDamage(1);
+        attacker.applyDamage(1, {cause:"thorns", damagedEntity: damagedEntity});
         const currentValue = attacker.getComponent('minecraft:health').currentValue;
         attacker.getComponent('minecraft:health').setCurrentValue(currentValue - damage * 0.5);
     }

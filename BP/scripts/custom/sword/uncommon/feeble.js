@@ -16,7 +16,7 @@ world.afterEvents.entityHurt.subscribe((event) => {
     
     if (Math.random() < 0.10) {
         health.setCurrentValue(Math.max(0, health.currentValue + 3));
-        attacker.playSound('random.orb');
+        attacker.playSound('random.break');
         attacker.onScreenDisplay.setActionBar('§r[§pFeeble Hit§r]');
     }
 });

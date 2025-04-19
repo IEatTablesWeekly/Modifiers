@@ -1,4 +1,3 @@
-import { TicksPerSecond } from '@minecraft/server';
 import { hasLoreInHeldItem , toAllPlayers } from '../../../utils/utils.js';
 
 function tryApplyResilience(player) {
@@ -7,4 +6,4 @@ function tryApplyResilience(player) {
     player.onScreenDisplay.setActionBar('§r[§8Resilience§r]');
 }
 
-toAllPlayers(tryApplyResilience, TicksPerSecond * 0.5);
+toAllPlayers(tryApplyResilience,5);

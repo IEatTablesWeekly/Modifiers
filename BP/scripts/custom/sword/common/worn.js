@@ -23,7 +23,7 @@ function tryApplyWorn(player) {
         inventory.setItem(selectedSlot, item);
 
         player.playSound('random.break');
-        player.onScreenDisplay.setActionBar('§r[§nItem Degraded§r]');
+        player.onScreenDisplay.setActionBar('§r[§nItem Damaged§r]');
     }
 }
 

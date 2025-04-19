@@ -1,8 +1,8 @@
 import { world, TicksPerSecond } from '@minecraft/server';
 import { hasLoreInHeldItem, toAllPlayers } from '../../../utils/utils.js';
 
-function applyRadiantHollow(player) {
-    if (!hasLoreInHeldItem(player, "terrablitz")) return;  
+function applyTerrablitz(player) {
+    if (!hasLoreInHeldItem(player, "terra")) return;  
 
     player.addEffect("speed", TicksPerSecond * 30, { amplifier: 3, showParticles: false });        
     player.addEffect("jump_boost", TicksPerSecond * 30, { amplifier: 1, showParticles: false });        
@@ -24,9 +24,8 @@ function applyRadiantHollow(player) {
         entity.addEffect("nausea", TicksPerSecond * 5, { amplifier: 1, showParticles: false });
         entity.addEffect("weakness", TicksPerSecond * 5, { amplifier: 1, showParticles: false });
         entity.addEffect("darkness", TicksPerSecond * 5, { amplifier: 0, showParticles: false });
-        entity.addEffect("wither", TicksPerSecond * 5, { amplifier: 0, showParticles: false });
     }
 }
 
-toAllPlayers(applyRadiantHollow, TicksPerSecond * 0.5);
+toAllPlayers(applyTerrablitz, 5);
 

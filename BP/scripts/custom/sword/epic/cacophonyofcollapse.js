@@ -1,4 +1,3 @@
-import { TicksPerSecond } from '@minecraft/server';
 import { hasLoreInHeldItem , toAllPlayers } from '../../../utils/utils.js';
 
 function tryApplyNausea(player) {
@@ -7,4 +6,4 @@ function tryApplyNausea(player) {
     player.onScreenDisplay.setActionBar('§r[§8Cacophony of Collapse§r]');
 }
 
-toAllPlayers(tryApplyNausea, TicksPerSecond * 0.5);
+toAllPlayers(tryApplyNausea,5);

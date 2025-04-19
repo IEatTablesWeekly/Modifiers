@@ -1,4 +1,3 @@
-import { TicksPerSecond } from '@minecraft/server';
 import { hasLoreInHeldItem , toAllPlayers } from '../../../utils/utils.js';
 
 function tryApplyDarkness(player) {
@@ -8,4 +7,4 @@ function tryApplyDarkness(player) {
     player.onScreenDisplay.setActionBar('§r[§8Bound To Darkness§r]');
 }
 
-toAllPlayers(tryApplyDarkness, TicksPerSecond * 0.5);
+toAllPlayers(tryApplyDarkness,5);

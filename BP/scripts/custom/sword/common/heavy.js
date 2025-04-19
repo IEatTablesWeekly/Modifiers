@@ -1,4 +1,3 @@
-import { world, TicksPerSecond, system } from '@minecraft/server';
 import { hasLoreInHeldItem, toAllPlayers } from '../../../utils/utils.js';
 
 function tryApplyHeavy(player) {
@@ -8,5 +7,5 @@ function tryApplyHeavy(player) {
     player.onScreenDisplay.setActionBar('§r[§7Heavy§r]');
 }
 
-toAllPlayers(tryApplyHeavy, TicksPerSecond * 0.5);
+toAllPlayers(tryApplyHeavy,5);
 

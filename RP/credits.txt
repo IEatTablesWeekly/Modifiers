@@ -1,0 +1,17 @@
+===========================
+        MODIFIERS
+         v1.0.0
+===========================
+
+Inspired by:
+ - Modifiers by Cursed1nferno (Java Mod)
+
+Concept & Guidance by:
+ - Ricecake 
+
+Developed by:
+ - IEatTablesWeekly
+
+For enquiries or questions, contact IEatTablesWeekly on discord.
+This project is licensed under the MIT License.
+See LICENSE.txt for full terms.

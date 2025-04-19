@@ -1,4 +1,3 @@
-import { TicksPerSecond } from '@minecraft/server';
 import { hasLoreInHeldItem , toAllPlayers } from '../../../utils/utils.js';
 
 function tryApplySwift(player) {
@@ -7,7 +6,7 @@ function tryApplySwift(player) {
     player.onScreenDisplay.setActionBar('§r[§aSwift§r]');
 }
 
-toAllPlayers(tryApplySwift, TicksPerSecond * 0.5);
+toAllPlayers(tryApplySwift,5);
 
 
 

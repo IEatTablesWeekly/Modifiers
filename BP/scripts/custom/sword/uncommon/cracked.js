@@ -4,7 +4,7 @@ import { hasLoreInHeldItem } from '../../../utils/utils.js';
 function tryApplyCracked(player) {
     if (Math.random() > 0.2) return;
 
-    if (!hasLoreInHeldItem(player, 'worn')) return;
+    if (!hasLoreInHeldItem(player, 'cracked')) return;
 
     const inventory = player.getComponent('minecraft:inventory')?.container;
     if (!inventory) return;

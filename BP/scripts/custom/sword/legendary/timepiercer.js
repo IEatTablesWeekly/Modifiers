@@ -16,8 +16,8 @@ world.afterEvents.entityHurt.subscribe((event) => {
     const { x: yaw, y: pitch } = damagedEntity.getRotation();
 
     if (damagedEntity.typeId === 'minecraft:player') {
-        damagedEntity.runCommandAsync(`inputpermission set @s movement disabled`);
-        damagedEntity.runCommandAsync(`inputpermission set @s camera disabled`);
+        damagedEntity.inputPermissions.setPermission("movement", false);
+        damagedEntity.inputPermissions.setPermission("camera", false);
         damagedEntity.onScreenDisplay.setActionBar('§r[§2You have been Timepierced§r]');
     }
 
@@ -55,8 +55,8 @@ world.afterEvents.entityHurt.subscribe((event) => {
             system.clearRun(freezeId);
 
             if (damagedEntity.isValid() && damagedEntity.typeId === 'minecraft:player') {
-                damagedEntity.runCommandAsync(`inputpermission set @s movement enabled`);
-                damagedEntity.runCommandAsync(`inputpermission set @s camera enabled`);
+                damagedEntity.inputPermissions.setPermission("movement", true);
+                damagedEntity.inputPermissions.setPermission("camera", true);
             }
         }
     }, 1);

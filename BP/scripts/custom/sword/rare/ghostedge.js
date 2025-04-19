@@ -12,6 +12,6 @@ world.afterEvents.entityHurt.subscribe((event) => {
     if (!hasLoreInHeldItem(attacker, 'ghostedge')) return;
 
     system.runTimeout(() => {
-        damagedEntity.applyDamage(damage * 1.25);
+        damagedEntity.applyDamage(damage * 1.25, {cause:"entityAttack", damagingEntity: attacker});
     }, TicksPerSecond * 0.5);
 });
