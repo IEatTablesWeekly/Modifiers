@@ -70,7 +70,7 @@ export function processInventoryWithModifiers(player, weaponKeywords, abilitiesB
             displayName: " Epic (8%)"
         },
         legendary: {
-            chance: 2,
+            chance: 2000,
             color: "§r§6",
             displayName: " Legendary (2%)"
         }
@@ -123,11 +123,11 @@ export function processInventoryWithModifiers(player, weaponKeywords, abilitiesB
 
                 inventory.setItem(i, item);
             } catch (e) {
-                console.error("[Modifier Utils][Error While Setting Item Metadata]:", e);
+                console.error("[IEatTablesWeekly][V1.0 Modifiers] Error while setting item metadata:", e);
             }
         }
     } catch (err) {
-        console.error("[Modifier Utils][Error While Processing Inventory]:", err);
+        console.error("[IEatTablesWeekly][V1.0 Modifiers] Error while accessing inventory:", err);
     }
 }
 
