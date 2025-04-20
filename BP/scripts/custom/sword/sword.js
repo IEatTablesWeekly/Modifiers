@@ -5,14 +5,13 @@ const swordKeywords = [
     "sword", "katana", "scimitar", "blade", "saber", "cutlass", "rapier", "edge", 
     "shortsword", "longsword", "broadsword", "claymore", "greatsword", 
     "falchion", "zweihander", "gladius", "spatha", "kurkri", "waraxe", "battleaxe", 
-    "spike", "stiletto", "handaxe", "warpick", "cleaver", "scythe", "warfan", 
+    "spike", "stiletto", "warpick", "cleaver", "scythe", "warfan", 
     "voulge", "tomahawk", "kris", "chokuto", "jambiya", "xiphos", "kopis", 
     "wakizashi", "tanto", "falcata", "balisong", "katanas", "nodachi", "tulwar", 
     "hooked blade", "longblade", "shortblade", "broadblade", "swordfish", "morningstar", 
     "katana blade", "kama", "swordbreaker", "rapierblade", "shamshir", "zhongdao","circus", 
     "cracker", "sord", "swrd"
 ];
-
 
 const ABILITIES = {
     common: [
