@@ -12,7 +12,7 @@ world.afterEvents.entityHurt.subscribe((event) => {
     if (!hasLoreInHeldItem(attacker, "stormcaller's edge")) return;
 
     if (Math.random() < 0.5) {
-        player.addEffect("fire_resistance", TicksPerSecond * 5, { amplifier: 0, showParticles: false });        
+        attacker.addEffect("fire_resistance", TicksPerSecond * 5, { amplifier: 0, showParticles: false });        
         attacker.onScreenDisplay.setActionBar("§r[§tStormcaller's Edge§r]");
         damagedEntity.runCommandAsync('summon minecraft:lightning_bolt')
 
