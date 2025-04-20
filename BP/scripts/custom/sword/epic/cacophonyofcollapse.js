@@ -1,4 +1,5 @@
 import { hasLoreInHeldItem , toAllPlayers } from '../../../utils/utils.js';
+import { TicksPerSecond } from '@minecraft/server';
 
 function tryApplyNausea(player) {
     if (!hasLoreInHeldItem(player, 'cacophony of collapse')) return;
@@ -6,4 +7,4 @@ function tryApplyNausea(player) {
     player.onScreenDisplay.setActionBar('§r[§8Cacophony of Collapse§r]');
 }
 
-toAllPlayers(tryApplyNausea,5);
+toAllPlayers(tryApplyNausea,10);
