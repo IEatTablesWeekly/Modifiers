@@ -1,4 +1,4 @@
-import { world , system } from '@minecraft/server';
+import { world , system, TicksPerSecond } from '@minecraft/server';
 import { hasLoreInHeldItem } from '../../../utils/utils.js';
 
 world.afterEvents.entityHurt.subscribe((event) => {
@@ -14,6 +14,10 @@ world.afterEvents.entityHurt.subscribe((event) => {
     if (Math.random() < 0.05) {
         attacker.playSound('bucket.lava_fill');
         attacker.onScreenDisplay.setActionBar('§r[§vFlametongue§r]');
+        attacker.addEffect("fire_resistance", TicksPerSecond * 15, {
+            amplifier: 0,
+            showParticles: false
+        });
 
         const dimension = world.getDimension(damagedEntity.dimension.id);
         const { x, y, z } = damagedEntity.location;
@@ -27,7 +31,7 @@ world.afterEvents.entityHurt.subscribe((event) => {
         system.runTimeout(() => {
             dimension.runCommandAsync(`setblock ${lavaX} ${lavaY} ${lavaZ} air`);
             dimension.runCommandAsync(`setblock ${lavaX} ${lavaY-1} ${lavaZ} air`);
-        }, 100);
+        }, TicksPerSecond * 5);
 
         const offsets = [
             [0, 1.5, 0], [1, 0.5, 0], [-1, 0.5, 0],
