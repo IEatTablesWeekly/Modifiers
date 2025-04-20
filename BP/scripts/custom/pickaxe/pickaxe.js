@@ -30,9 +30,9 @@ const ABILITIES = {
     ],
     legendary: [
       { name: "Midas Touch", description: "- [§a+§7§o] 25% of getting random ores from mining stone.", color: "§r§e" },
-      { name: "Voidhandle", description: "- [§a+§7§o] You can break blocks instantly.", color: "§r§8" },
+      { name: "Worldrender", description: "- [§a+§7§o] Your mining speed is greatly enhanced, making you mine blocks faster.", color: "§r§8" },
       { name: "Ceramic Touch", description: "- [§a+§7§o] Blocks you break will not transform into another form upon dropping", color: "§r§m" },
-      { name: "Seismic", description: "- [§a+§7§o] Mines in a 3x3 radius.", color: "§r§n" },
+      { name: "Seismic", description: "- [§a+§7§o] Causes seismic waves when you mine, leading to an increased mine radius. Sneak to disable", color: "§r§n" },
     ]
 };
 
