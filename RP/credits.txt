@@ -12,6 +12,9 @@ Concept & Guidance by:
 Developed by:
  - IEatTablesWeekly
 
+ Testers:
+ - GeorgeGamington
+
 For enquiries or questions, contact IEatTablesWeekly on discord.
 This project is licensed under the MIT License.
 See LICENSE.txt for full terms.
