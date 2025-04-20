@@ -70,7 +70,7 @@ export function processInventoryWithModifiers(player, weaponKeywords, abilitiesB
             displayName: " Epic (8%)"
         },
         legendary: {
-            chance: 2000,
+            chance: 2,
             color: "§r§6",
             displayName: " Legendary (2%)"
         }
@@ -131,6 +131,16 @@ export function processInventoryWithModifiers(player, weaponKeywords, abilitiesB
     }
 }
 
+/**
+ * Generates a random integer
+ *
+ * @param {number} min - The minimum integer to generate.
+ * @param {number} max - The maximum integer to generate.
+ */
+export function randomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  
 
 
 
