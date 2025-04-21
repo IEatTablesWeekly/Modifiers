@@ -26,12 +26,11 @@ const ABILITIES = {
         { name: "Magnetized", description: "- [§a+§7§o] Automatically pulls mined ores near you.", color: "§r§b" },
         { name: "Volcanic", description: "- [§a+§7§o] Smelts ores directly when mined.", color: "§r§4" },
         { name: "Unbreakable", description: "- [§a+§7§o] This item is unbreakable and will never break.", color: "§r§9" },
-        { name: "Claustrophobic", description: "- [§c-§7§o] Mining in tight spaces will make you dizzy.", color: "§r§8" },
+        { name: "Claustrophobic", description: "- [§c-§7§o] Mining in tight spaces will cause you to hallucinate.", color: "§r§8" },
     ],
     legendary: [
       { name: "Midas Touch", description: "- [§a+§7§o] 25% of getting random ores from mining stone.", color: "§r§e" },
       { name: "Worldrender", description: "- [§a+§7§o] Your mining speed is greatly enhanced, making you mine blocks faster.", color: "§r§8" },
-      { name: "Ceramic Touch", description: "- [§a+§7§o] Blocks you break will not transform into another form upon dropping", color: "§r§m" },
       { name: "Seismic", description: "- [§a+§7§o] Causes seismic waves when you mine, leading to an increased mine radius. Sneak to disable", color: "§r§n" },
     ]
 };
