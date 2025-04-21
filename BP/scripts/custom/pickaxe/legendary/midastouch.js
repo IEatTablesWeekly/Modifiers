@@ -48,7 +48,6 @@ world.afterEvents.playerBreakBlock.subscribe(event => {
 
   if (!targetBlocks.includes(blockId)) return;
   if (!hasLoreInHeldItem(player, 'midas')) return;
-  console.log("henlo")
 
   function toTitleCase(str) {
     return str.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
