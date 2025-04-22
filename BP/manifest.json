@@ -22,13 +22,13 @@
             "version": [1, 0, 0]
         },
         {
-            "description": "none",
+            "description": "Modifiers",
             "type": "data",
             "uuid": "da011314-aecc-4ece-86e0-76d6ee9fa67e",
             "version": [
+              1,
               0,
-              0,
-              1
+              0
             ]
           }
     ],
