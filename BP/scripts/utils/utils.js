@@ -141,6 +141,36 @@ export function randomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
   
+  import { EquipmentSlot } from '@minecraft/server';
+
+  /**
+   * Checks if the equipped item in a specified slot contains a given lore text.
+   *
+   * @param {Entity} entity - The entity to inspect.
+   * @param {string} loreText - The lore text to search for (case-insensitive).
+   * @param {EquipmentSlot} slot - The equipment slot to check (e.g., EquipmentSlot.Head).
+   * @returns {boolean} - True if the lore text is found; otherwise, false.
+   */
+  export function hasLoreInEquippedItem(entity, loreText, slot) {
+      if (!entity?.isValid()) return false;
+  
+      const equippable = entity.getComponent('minecraft:equippable');
+      if (!equippable) return false;
+  
+      try {
+          const item = equippable.getEquipment(slot);
+          if (!item) return false;
+  
+          const lore = item.getLore();
+          if (!Array.isArray(lore)) return false;
+  
+          return lore.some(line => line.toLowerCase().includes(loreText.toLowerCase()));
+      } catch (error) {
+          console.warn(`Error accessing equipment slot '${slot}':`, error);
+          return false;
+      }
+  }
+  
 
 
 
