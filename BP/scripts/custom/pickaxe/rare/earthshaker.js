@@ -1,4 +1,3 @@
-// doesn't work well cureently il fix later (trust me bro)
 import { world , TicksPerSecond } from '@minecraft/server';
 import { hasLoreInHeldItem } from '../../../utils/utils.js';
 
@@ -13,34 +12,21 @@ const excludeEntities = new Set([
   "wither_skull", "wither_skull_dangerous", "xp_bottle", "xp_orb"
 ]);
 
-function spawnParticleRing(dimension, center, radius, count = 20) {
-    for (let i = 0; i < count; i++) {
-        const angle = (i / count) * Math.PI * 2;
-        const x = center.x + radius * Math.cos(angle);
-        const z = center.z + radius * Math.sin(angle);
-        const y = center.y + 1;
-
-        dimension.runCommandAsync(`particle minecraft:sculk_charge_pop_particle ${x} ${y} ${z}`);
-    }
-}
-
 function tryApplyEarthshaker(player){
     if (!hasLoreInHeldItem(player, "earthshaker")) return;
     if (player.isSneaking) return;
 
     player.onScreenDisplay.setActionBar('§r[§nEarth Shaker§r]');
-    // player.playSound('beacon.activate');
+    player.playSound('block.bamboo.break');
 
     const dimension = player.dimension;
     const origin = player.location;
     const radius = 9;
 
-    spawnParticleRing(dimension, origin, radius);
-
     const nearbyEntities = dimension.getEntities({
         location: origin,
-        maxDistance: radius - 1,
-        excludeEntities: Array.from(excludeEntities)
+        maxDistance: radius,
+        excludeTypes: Array.from(excludeEntities)
     });
 
 
