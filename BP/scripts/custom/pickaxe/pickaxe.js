@@ -5,7 +5,6 @@ const pickaxeKeywords = [
     "pickaxe", "miner", "pick"
 ];
 
-
 const ABILITIES = {
     common: [
         { name: "Sturdy", description: "- [§a+§7§o] 20% chance to not consume durability.", color: "§r§7" },
