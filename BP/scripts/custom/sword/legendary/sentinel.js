@@ -1,26 +1,15 @@
 import { hasLoreInHeldItem, toAllPlayers } from '../../../utils/utils.js';
 
 const excludeEntities = new Set([
-  "minecraft:item","agent", "area_effect_cloud", "armor_stand", "arrow", "boat",
-  "chest", "chest_boat", "chest_minecart", "command_block_minecart",
-  "dragon_fireball", "minecart", "fireball", "egg", "ender_crystal",
-  "ender_pearl", "eye_of_ender_signal", "fireworks_rocket", "fishing_hook",
-  "hopper_minecart", "lightning_bolt", "lingering_potion", "player", "potion",
-  "llama_spit", "npc", "shulker_bullet", "snowball", "small_fireball",
-  "splash_potion", "thrown_trident", "tnt", "tnt_minecart", "tripod_camera",
-  "wither_skull", "wither_skull_dangerous", "xp_bottle", "xp_orb"
-]);
-
-function spawnParticleRing(dimension, center, radius, count = 20) {
-    for (let i = 0; i < count; i++) {
-        const angle = (i / count) * Math.PI * 2;
-        const x = center.x + radius * Math.cos(angle);
-        const z = center.z + radius * Math.sin(angle);
-        const y = center.y + 1;
-
-        dimension.runCommandAsync(`particle minecraft:sculk_charge_pop_particle ${x} ${y} ${z}`);
-    }
-}
+    "minecraft:item", "minecraft:agent", "minecraft:area_effect_cloud", "minecraft:armor_stand", "minecraft:arrow", "minecraft:boat",
+    "minecraft:chest", "minecraft:chest_boat", "minecraft:chest_minecart", "minecraft:command_block_minecart",
+    "minecraft:dragon_fireball", "minecraft:minecart", "minecraft:fireball", "minecraft:egg", "minecraft:ender_crystal",
+    "minecraft:ender_pearl", "minecraft:eye_of_ender_signal", "minecraft:fireworks_rocket", "minecraft:fishing_hook",
+    "minecraft:hopper_minecart", "minecraft:lightning_bolt", "minecraft:lingering_potion", "minecraft:player", "minecraft:potion",
+    "minecraft:llama_spit", "minecraft:npc", "minecraft:shulker_bullet", "minecraft:snowball", "minecraft:small_fireball",
+    "minecraft:splash_potion", "minecraft:thrown_trident", "minecraft:tnt", "minecraft:tnt_minecart", "minecraft:tripod_camera",
+    "minecraft:wither_skull", "minecraft:wither_skull_dangerous", "minecraft:xp_bottle", "minecraft:xp_orb"
+  ]);
 
 function applyForcefield(player) {
     if (!hasLoreInHeldItem(player, "sentinel")) return;
@@ -31,18 +20,14 @@ function applyForcefield(player) {
 
     const dimension = player.dimension;
     const origin = player.location;
-    const radius = 6;
-
-    spawnParticleRing(dimension, origin, radius);
-
+    const radius = 12;
+    
     const nearbyEntities = dimension.getEntities({
         location: origin,
-        maxDistance: radius - 1,
-        excludeEntities: Array.from(excludeEntities)
-    });
-
-    console.log(JSON.stringify(nearbyEntities))
-
+        maxDistance: radius,
+        excludeTypes: Array.from(excludeEntities)
+      });
+    
     for (const entity of nearbyEntities) {
         if (entity.id === player.id) continue;
 
