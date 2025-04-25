@@ -67,7 +67,9 @@ function breakOreBlock(block, player, silkTouch, fortuneLevel, blockTypeId) {
   }, 0);
 }
 
-function veinMine(originBlock, player, blockTypeId, visited = new Set()) {
+function veinMine(originBlock, player, blockTypeId, visited = new Set(), count = { value: 0 }) {
+  if (count.value >= 16) return;
+
   const radius = 1;
   const silkTouch = hasSilkTouch(player);
   const fortune = getFortuneLevel(player);
@@ -76,6 +78,7 @@ function veinMine(originBlock, player, blockTypeId, visited = new Set()) {
   if (visited.has(key)) return;
   visited.add(key);
 
+  count.value++;
   breakOreBlock(originBlock, player, silkTouch, fortune, blockTypeId);
 
   const { x, y, z } = originBlock.location;
@@ -89,12 +92,14 @@ function veinMine(originBlock, player, blockTypeId, visited = new Set()) {
         const neighbor = player.dimension.getBlock(neighborLoc);
 
         if (neighbor?.typeId === blockTypeId) {
-          veinMine(neighbor, player, blockTypeId, visited);
+          veinMine(neighbor, player, blockTypeId, visited, count);
+          if (count.value >= 16) return;
         }
       }
     }
   }
 }
+
 
 world.afterEvents.playerBreakBlock.subscribe(({ player, block, brokenBlockPermutation }) => {
   if (!player?.isValid() || !block) return;
