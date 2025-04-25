@@ -170,6 +170,99 @@ export function randomInt(min, max) {
           return false;
       }
   }
+/**
+ * Extracts the first number found in an array of lore lines.
+ * Iterates through each line of the `loreLines` array and returns the first number
+ * found as an integer. If no number is found in any line, it returns null.
+ *
+ * @param {string[]} loreLines - An array of lore strings (e.g., from item descriptions).
+ * @returns {number|null} The first number found, or null if no number exists.
+ */
+export function extractFirstNumberFromLore(loreLines) {
+    for (const line of loreLines) {
+        const match = line.match(/(\d+)/);
+        if (match) {
+            return parseInt(match[1]);
+        }
+    }
+    return null;
+}
+
+  
+  /**
+   * Displays multiple messages in the actionbar at the same time, with priority.
+   *
+   * @param {Player} player - The player to show the actionbar to.
+   * @param {string} message - The message to show.
+   * @param {number} duration - Duration in ticks. (Default = 40 ticks)
+   * @param {number} priority - Priority of the message. Higher shows at the top. (Default = 0)
+   */
+
+  const playerActionbars = new Map();
+  const lastDisplayedText = new Map();
+
+  export function displayOnActionbar(player, message, duration = 40, priority = 0) {
+      if (!player || typeof message !== "string" || !message.trim()) return;
+  
+      const id = player.id;
+      const currentTick = system.currentTick;
+  
+      if (!playerActionbars.has(id)) {
+          playerActionbars.set(id, new Map());
+      }
+  
+      const msgMap = playerActionbars.get(id);
+  
+      const existing = msgMap.get(message);
+      if (!existing || existing.expireTick <= currentTick) {
+          msgMap.set(message, {
+              message,
+              expireTick: currentTick + duration,
+              timestamp: Date.now(),
+              priority: priority
+          });
+      }
+  }
+  
+  system.runInterval(() => {
+      const currentTick = system.currentTick;
+  
+      for (const player of world.getPlayers()) {
+          const id = player.id;
+          const msgMap = playerActionbars.get(id) ?? new Map();
+  
+          const activeEntries = Array.from(msgMap.values())
+          .filter(entry => entry.expireTick > currentTick)
+          .sort((a, b) => {
+              if (a.priority !== b.priority) {
+                  return a.priority - b.priority;
+              }
+              return a.timestamp - b.timestamp;
+          });
+      
+      const newText = activeEntries.map(e => e.message).join('\n');
+          const lastText = lastDisplayedText.get(id) ?? "";
+  
+          if (newText !== lastText) {
+              player.onScreenDisplay.setActionBar(newText);
+              lastDisplayedText.set(id, newText);
+          }
+  
+          const updatedMap = new Map();
+          for (const entry of activeEntries) {
+              updatedMap.set(entry.message, entry);
+          }
+          playerActionbars.set(id, updatedMap);
+  
+          if (activeEntries.length === 0 && lastText !== "") {
+              player.onScreenDisplay.setActionBar("");
+              lastDisplayedText.set(id, "");
+          }
+      }
+  }, 1);
+  
+
+  
   
 
 
