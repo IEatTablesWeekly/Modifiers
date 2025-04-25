@@ -51,7 +51,6 @@ const ABILITIES = {
     ],
     legendary: [
         { name: "Excalibur", description: "- [§a+§7§o] Its divine power shreds through all defenses. This sword ignores armor.", color: "§r§u" },
-        { name: "Aegis", description: "- [§a+§7§o] Creates a protective aura around the user,\n reflecting all damage and healing them significantly,\neffectively making them immortal.", color: "§r§q" },
         { name: "Timepiercer", description: "- [§a+§7§o] Attacks stop enemies in time, preventing them from moving or performing any action.", color: "§r§2" },
         { name: "Shadowstep", description: "- [§a+§7§o] Step into the shadow realm, manifesting yourself \nas a shadow of pure energy behind the enemy.", color: "§r§8" },
         { name: "Terra§qblitz", description: "- [§a+§7§o] Grants the user enhanced movement abilities \nto effortlessly traverse the terrain.\nSignificantly hinders nearby enemies when held.", color: "§r§n" },
