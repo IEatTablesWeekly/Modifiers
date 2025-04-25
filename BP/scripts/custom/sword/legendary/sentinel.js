@@ -15,7 +15,7 @@ function applyForcefield(player) {
     if (!hasLoreInHeldItem(player, "sentinel")) return;
     if (player.isSneaking) return;
 
-    displayOnActionbar(plaayer, '§r[§sSentinel Active§r]', 40, 0)
+    displayOnActionbar(player, '§r[§sSentinel Active§r]', 40, 0)
     player.playSound('beacon.activate');
 
     const dimension = player.dimension;
