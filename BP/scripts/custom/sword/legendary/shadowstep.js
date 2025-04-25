@@ -180,7 +180,6 @@ world.afterEvents.entityHurt.subscribe((event) => {
         attacker.teleport(teleportPos, {
             facingLocation: damagedLoc,
         });
-
         const attackerViewDir = attacker.getViewDirection();
         if (damagedEntity.isValid()) {
             damagedEntity.applyKnockback(attackerViewDir.x, attackerViewDir.z, 1, 0.1);
