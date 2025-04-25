@@ -1,5 +1,5 @@
 import { TicksPerSecond } from '@minecraft/server';
-import { hasLoreInHeldItem, toAllPlayers } from '../../../utils/utils.js';
+import { hasLoreInHeldItem, toAllPlayers, displayOnActionbar } from '../../../utils/utils.js';
 
 function applyCharged(player) {
     if (!hasLoreInHeldItem(player, 'charged')) return;
@@ -13,11 +13,11 @@ function applyCharged(player) {
             showParticles: false
         });
 
-        player.onScreenDisplay.setActionBar('§r[§uCharged§r]');
+        displayOnActionbar(player, '§r[§uCharged§r]', 40, 0)
         player.playSound("beacon.activate");
     }
 }
 
-toAllPlayers(applyCharged);
+toAllPlayers(applyCharged, 10);
 
 

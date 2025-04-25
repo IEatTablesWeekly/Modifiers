@@ -8,7 +8,7 @@ function tryApplyUnstable(player) {
         if (!inventory) return;
 
         player.playSound('random.break');
-        player.onScreenDisplay.setActionBar('§r[§8Unstable§r]');
+        displayOnActionbar(player, '§r[§8Unstable§r]', 40, 0);
         inventory.setItem(player.selectedSlotIndex, null);
     }
 }

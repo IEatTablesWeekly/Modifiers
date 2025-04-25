@@ -1,5 +1,5 @@
 import { world } from '@minecraft/server';
-import { hasLoreInHeldItem } from '../../../utils/utils.js';
+import { hasLoreInHeldItem, displayOnActionbar } from '../../../utils/utils.js';
 
 function tryApplySturdy(player) {
     if (Math.random() > 0.2) return;
@@ -22,7 +22,7 @@ function tryApplySturdy(player) {
         inventory.setItem(selectedSlot, item);
 
         player.playSound('random.orb');
-        player.onScreenDisplay.setActionBar('§r[§bSturdy§r]');
+        displayOnActionbar(player, '§r[§bSturdy§r]', 40, 1)
     }
 }
 

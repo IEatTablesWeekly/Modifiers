@@ -1,5 +1,5 @@
 import { world } from '@minecraft/server';
-import { hasLoreInHeldItem } from '../../../utils/utils.js';
+import { hasLoreInHeldItem, displayOnActionbar } from '../../../utils/utils.js';
 
 const oreBlocks = new Set([
     'minecraft:coal_ore',
@@ -38,7 +38,7 @@ function tryApplyCollector(player, block) {
         inventory.setItem(selectedSlot, item);
 
         player.playSound('random.orb');
-        player.onScreenDisplay.setActionBar('§r[§7Collector§r]');
+        displayOnActionbar(player, '§r[§7Collector§r]', 40, 1)
     }
 }
 

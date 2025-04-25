@@ -1,5 +1,5 @@
 import { world, system } from '@minecraft/server';
-import { hasLoreInHeldItem } from '../../../utils/utils.js';
+import { hasLoreInHeldItem, displayOnActionbar } from '../../../utils/utils.js';
 
 const trapBlocks = new Set([
   'minecraft:stone',
@@ -26,6 +26,6 @@ world.afterEvents.playerBreakBlock.subscribe(({ player, brokenBlockPermutation }
     });
 
     player.playSound('mob.silverfish.say');
-    player.onScreenDisplay.setActionBar('§r[§qInfested§r]');
-  }, 5);
+    displayOnActionbar(player, '§r[§qInfested§r]', 40, 1)
+  }, 1);
 });

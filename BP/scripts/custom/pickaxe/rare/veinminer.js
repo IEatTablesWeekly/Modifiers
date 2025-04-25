@@ -1,5 +1,5 @@
 import { world, system, ItemStack, ItemTypes } from '@minecraft/server';
-import { hasLoreInHeldItem, randomInt } from '../../../utils/utils.js';
+import { hasLoreInHeldItem, randomInt, displayOnActionbar } from '../../../utils/utils.js';
 
 function hasSilkTouch(player) {
   const item = player.getComponent('inventory')?.container?.getItem(player.selectedSlotIndex);
@@ -104,4 +104,5 @@ world.afterEvents.playerBreakBlock.subscribe(({ player, block, brokenBlockPermut
   const blockTypeId = brokenBlockPermutation.type.id;
   if (!naturalOreDrops[blockTypeId]) return;
   system.run(() => veinMine(block, player, blockTypeId));
+  displayOnActionbar(player, '§r[§sVein Miner§r]', 40, 1)
 });

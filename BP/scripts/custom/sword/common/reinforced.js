@@ -1,5 +1,5 @@
 import { world } from '@minecraft/server';
-import { hasLoreInHeldItem } from '../../../utils/utils.js';
+import { hasLoreInHeldItem, displayOnActionbar } from '../../../utils/utils.js';
 
 function tryApplyReinforcement(player) {
     if (Math.random() > 0.1) return;
@@ -22,7 +22,7 @@ function tryApplyReinforcement(player) {
         inventory.setItem(selectedSlot, item);
 
         player.playSound('random.orb');
-        player.onScreenDisplay.setActionBar('§r[§bReinforced Item§r]');
+        displayOnActionbar(player, '§r[§bReinforced Item§r]', 40, 0)
     }
 }
 

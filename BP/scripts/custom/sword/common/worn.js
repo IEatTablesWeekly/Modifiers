@@ -1,5 +1,5 @@
 import { world } from '@minecraft/server';
-import { hasLoreInHeldItem } from '../../../utils/utils.js';
+import { hasLoreInHeldItem, displayOnActionbar } from '../../../utils/utils.js';
 
 function tryApplyWorn(player) {
     if (Math.random() > 0.1) return;
@@ -23,7 +23,7 @@ function tryApplyWorn(player) {
         inventory.setItem(selectedSlot, item);
 
         player.playSound('random.break');
-        player.onScreenDisplay.setActionBar('§r[§nItem Damaged§r]');
+        displayOnActionbar(player, '§r[§nItem Damaged§r]', 40, 0)
     }
 }
 

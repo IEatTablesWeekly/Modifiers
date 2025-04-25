@@ -1,5 +1,5 @@
 import { world, system, ItemStack } from '@minecraft/server';
-import { hasLoreInHeldItem, randomInt } from '../../../utils/utils.js';
+import { hasLoreInHeldItem, randomInt, displayOnActionbar } from '../../../utils/utils.js';
 
 const blockDropMap = {
   'minecraft:stone': 'minecraft:cobblestone',
@@ -201,7 +201,7 @@ function tryApplySeismic(player, origin) {
       }
     }
   }
-  player.onScreenDisplay.setActionBar('§r[§nSeismic§r]');
+  displayOnActionbar(player, '§r[§nSeismic§r]', 40, 1)
 }
 
 

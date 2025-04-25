@@ -1,5 +1,4 @@
-import { world } from '@minecraft/server';
-import { hasLoreInHeldItem, toAllPlayers } from '../../../utils/utils.js';
+import { hasLoreInHeldItem, toAllPlayers, displayOnActionbar } from '../../../utils/utils.js';
 
 const oreItems = new Set([
   'minecraft:coal',
@@ -82,6 +81,7 @@ function tryApplyMagnetized(player) {
       z: (dz / magnitude) * impulseStrength
     });
   }
+  displayOnActionbar(player, '§r[§bMagnetized§r]', 40, 1)
 }
 
 toAllPlayers(tryApplyMagnetized, 10);

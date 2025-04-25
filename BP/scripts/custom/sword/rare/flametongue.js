@@ -1,5 +1,5 @@
 import { world , system, TicksPerSecond } from '@minecraft/server';
-import { hasLoreInHeldItem } from '../../../utils/utils.js';
+import { hasLoreInHeldItem, displayOnActionbar } from '../../../utils/utils.js';
 
 world.afterEvents.entityHurt.subscribe((event) => {
     if (event.damageSource.cause !== "entityAttack") return;
@@ -13,7 +13,8 @@ world.afterEvents.entityHurt.subscribe((event) => {
 
     if (Math.random() < 0.05) {
         attacker.playSound('bucket.lava_fill');
-        attacker.onScreenDisplay.setActionBar('§r[§vFlametongue§r]');
+        displayOnActionbar(player, '§r[§vFlametongue§r]', 40, 0)
+
         attacker.addEffect("fire_resistance", TicksPerSecond * 15, {
             amplifier: 0,
             showParticles: false

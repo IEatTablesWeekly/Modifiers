@@ -1,5 +1,5 @@
 import { world, TicksPerSecond } from '@minecraft/server';
-import { hasLoreInHeldItem } from '../../../utils/utils.js';
+import { hasLoreInHeldItem, displayOnActionbar } from '../../../utils/utils.js';
 
 function tryApplyClaustrophobic(player) {
     if (!hasLoreInHeldItem(player, 'claustrophobic')) return;
@@ -20,7 +20,7 @@ function tryApplyClaustrophobic(player) {
             player.addEffect("nausea", TicksPerSecond * 7, { amplifier: 0, showParticles: false });
         }
         player.playSound('ambient.cave');
-        player.onScreenDisplay.setActionBar('§r[§8Claustrophobic§r]');
+        displayOnActionbar(player, '§r[§8Claustrophobic§r]', 40, 1)
     }
 }
 

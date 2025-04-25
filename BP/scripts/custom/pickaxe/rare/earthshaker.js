@@ -1,5 +1,5 @@
-import { world , TicksPerSecond } from '@minecraft/server';
-import { hasLoreInHeldItem } from '../../../utils/utils.js';
+import { world } from '@minecraft/server';
+import { hasLoreInHeldItem, displayOnActionbar } from '../../../utils/utils.js';
 
 const excludeEntities = new Set([
   "minecraft:item","agent", "area_effect_cloud", "armor_stand", "arrow", "boat",
@@ -16,7 +16,7 @@ function tryApplyEarthshaker(player){
     if (!hasLoreInHeldItem(player, "earthshaker")) return;
     if (player.isSneaking) return;
 
-    player.onScreenDisplay.setActionBar('§r[§nEarth Shaker§r]');
+    displayOnActionbar(player, '§r[§nEarth Shaker§r]', 40, 1)
     player.playSound('block.bamboo.break');
 
     const dimension = player.dimension;

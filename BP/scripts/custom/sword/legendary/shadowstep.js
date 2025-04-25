@@ -1,5 +1,5 @@
 import { world, TicksPerSecond } from '@minecraft/server';
-import { hasLoreInHeldItem } from '../../../utils/utils.js';
+import { hasLoreInHeldItem, displayOnActionbar } from '../../../utils/utils.js';
 
 world.afterEvents.entityHurt.subscribe((event) => {
     if (event.damageSource.cause !== "entityAttack") return;
@@ -189,5 +189,7 @@ world.afterEvents.entityHurt.subscribe((event) => {
         attacker.addEffect("strength", TicksPerSecond * 5, { amplifier: 1, showParticles: false });
         attacker.addEffect("invisibility", TicksPerSecond * 5, { amplifier: 0, showParticles: false });
         damagedEntity.addEffect("darkness", TicksPerSecond * 2, { amplifier: 0, showParticles: false });
+
+        displayOnActionbar(attacker, '§r[§0Shadowstep§r]', 40, 0)
     }
 });

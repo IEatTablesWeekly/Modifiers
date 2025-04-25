@@ -1,5 +1,5 @@
 import { world } from '@minecraft/server';
-import { hasLoreInHeldItem } from '../../../utils/utils.js';
+import { hasLoreInHeldItem, displayOnActionbar } from '../../../utils/utils.js';
 
 world.afterEvents.entityHurt.subscribe((event) => {
     if (event.damageSource.cause !== "entityAttack") return;
@@ -19,7 +19,7 @@ world.afterEvents.entityHurt.subscribe((event) => {
         victimHealth.setCurrentValue(Math.max(0, victimHealth.currentValue - 2));
 
         attacker.playSound('mob.chicken.plop');
-        attacker.onScreenDisplay.setActionBar('§r[§4Lifedrain§r]');
+        displayOnActionbar(attacker, '§r[§4Lifedrain§r]', 40, 0)
 
         const dimension = world.getDimension(damagedEntity.dimension.id);
         const { x, y, z } = damagedEntity.location;

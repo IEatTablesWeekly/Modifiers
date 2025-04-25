@@ -1,5 +1,5 @@
 import { world } from '@minecraft/server';
-import { hasLoreInHeldItem } from '../../../utils/utils.js';
+import { hasLoreInHeldItem, displayOnActionbar } from '../../../utils/utils.js';
 
 function tryApplyUnbreakable(player) {
     if (!hasLoreInHeldItem(player, 'unbreakable')) return;
@@ -16,7 +16,7 @@ function tryApplyUnbreakable(player) {
         const maxDurability = durability.maxDurability;
         const restoreAmount = Math.ceil(maxDurability);
         durability.damage = Math.max(durability.damage - restoreAmount, 0);
-        player.onScreenDisplay.setActionBar('§r[§9Unbreakable§r]');
+        displayOnActionbar(player, '§r[§9Unbreakable§r]', 40, 0)
 
         inventory.setItem(selectedSlot, item);
     }

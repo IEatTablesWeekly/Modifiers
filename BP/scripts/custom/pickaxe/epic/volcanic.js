@@ -1,5 +1,5 @@
 import { world, system, ItemStack, ItemTypes } from '@minecraft/server';
-import { hasLoreInHeldItem, randomInt } from '../../../utils/utils.js';
+import { hasLoreInHeldItem, randomInt, displayOnActionbar } from '../../../utils/utils.js';
 
 const smeltingOreMap = new Map([
   ['minecraft:copper_ore', 'minecraft:copper_ingot'],
@@ -63,7 +63,8 @@ function tryApplyVolcanic(player, blockId, blockLoc) {
     const drop = new ItemStack(ItemTypes.get(dropId), dropCount);
     dim.spawnItem(drop, blockLoc);
 
-    player.onScreenDisplay.setActionBar('§r[§6Volcanic§r] Ore Smelted!');
+    displayOnActionbar(player, '§r[§vVolcanic§r]', 40, 1)
+
   }, 1);
 }
 

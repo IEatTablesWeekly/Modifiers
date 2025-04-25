@@ -1,5 +1,5 @@
 import { world } from '@minecraft/server';
-import { hasLoreInHeldItem } from '../../../utils/utils.js';
+import { hasLoreInHeldItem, displayOnActionbar } from '../../../utils/utils.js';
 
 world.afterEvents.entityHurt.subscribe((event) => {
     if (event.damageSource.cause !== "entityAttack") return;
@@ -14,6 +14,6 @@ world.afterEvents.entityHurt.subscribe((event) => {
     if (Math.random() < 0.2) {
         const viewDirection = attacker.getViewDirection();
         damagedEntity.applyKnockback(viewDirection.x, viewDirection.z, 0, 2);
-        attacker.onScreenDisplay.setActionBar('§r[§qGaleblade§r]');
+        displayOnActionbar(attacker, '§r[§qGaleblade§r]', 40, 0)
     }
 });

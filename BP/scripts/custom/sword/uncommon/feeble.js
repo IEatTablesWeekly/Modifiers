@@ -1,5 +1,5 @@
 import { world } from '@minecraft/server';
-import { hasLoreInHeldItem } from '../../../utils/utils.js';
+import { hasLoreInHeldItem, displayOnActionbar } from '../../../utils/utils.js';
 
 world.afterEvents.entityHurt.subscribe((event) => {
     if (event.damageSource.cause !== "entityAttack") return;
@@ -17,6 +17,6 @@ world.afterEvents.entityHurt.subscribe((event) => {
     if (Math.random() < 0.10) {
         health.setCurrentValue(Math.max(0, health.currentValue + 3));
         attacker.playSound('random.break');
-        attacker.onScreenDisplay.setActionBar('§r[§pFeeble Hit§r]');
+        displayOnActionbar(attacker, '§r[§pFeeble Hit§r]', 40, 0)
     }
 });

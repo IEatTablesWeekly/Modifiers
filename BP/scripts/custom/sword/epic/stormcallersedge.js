@@ -1,5 +1,5 @@
 import { world, system, TicksPerSecond } from '@minecraft/server';
-import { hasLoreInHeldItem } from '../../../utils/utils.js';
+import { hasLoreInHeldItem, displayOnActionbar } from '../../../utils/utils.js';
 
 world.afterEvents.entityHurt.subscribe((event) => {
     if (event.damageSource.cause !== "entityAttack") return;
@@ -13,7 +13,7 @@ world.afterEvents.entityHurt.subscribe((event) => {
 
     if (Math.random() < 0.5) {
         attacker.addEffect("fire_resistance", TicksPerSecond * 5, { amplifier: 0, showParticles: false });        
-        attacker.onScreenDisplay.setActionBar("§r[§tStormcaller's Edge§r]");
+        displayOnActionbar(attacker, "§r[§tStormcaller's Edge§r]", 40, 0)
         damagedEntity.runCommandAsync('summon minecraft:lightning_bolt')
 
         system.runTimeout(() => {

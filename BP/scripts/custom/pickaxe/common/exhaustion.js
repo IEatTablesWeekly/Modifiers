@@ -1,5 +1,5 @@
 import { world , TicksPerSecond } from '@minecraft/server';
-import { hasLoreInHeldItem } from '../../../utils/utils.js';
+import { hasLoreInHeldItem, displayOnActionbar } from '../../../utils/utils.js';
 
 function tryApplyExhaustion(player) {
     if (Math.random() > 0.05) return;
@@ -9,7 +9,7 @@ function tryApplyExhaustion(player) {
 
       player.addEffect("mining_fatigue", TicksPerSecond * 5, { amplifier: 3, showParticles: false });
       player.playSound('random.break');
-      player.onScreenDisplay.setActionBar('§r[§rExhausted§r]');
+      displayOnActionbar(player, '§r[§rExhausted§r]', 40, 1)
 }
 
 world.afterEvents.playerBreakBlock.subscribe(({ player }) => {

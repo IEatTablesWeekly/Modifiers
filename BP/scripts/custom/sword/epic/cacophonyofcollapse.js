@@ -1,10 +1,10 @@
-import { hasLoreInHeldItem , toAllPlayers } from '../../../utils/utils.js';
+import { hasLoreInHeldItem , toAllPlayers, displayOnActionbar } from '../../../utils/utils.js';
 import { TicksPerSecond } from '@minecraft/server';
 
 function tryApplyNausea(player) {
     if (!hasLoreInHeldItem(player, 'cacophony of collapse')) return;
     player.addEffect("nausea", TicksPerSecond * 2, { amplifier: 0, showParticles: false });
-    player.onScreenDisplay.setActionBar('§r[§8Cacophony of Collapse§r]');
+    displayOnActionbar(player, '§r[§8Cacophony of Collapse§r]', 40, 0)
 }
 
 toAllPlayers(tryApplyNausea,10);

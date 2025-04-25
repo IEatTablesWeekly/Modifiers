@@ -1,5 +1,5 @@
 import { world } from '@minecraft/server';
-import { hasLoreInHeldItem } from '../../../utils/utils.js';
+import { hasLoreInHeldItem, displayOnActionbar } from '../../../utils/utils.js';
 
 world.afterEvents.entityHurt.subscribe((event) => {
     if (event.damageSource.cause !== "entityAttack") return;
@@ -15,7 +15,7 @@ world.afterEvents.entityHurt.subscribe((event) => {
         const attackerHealth = attacker.getComponent('minecraft:health');
 
         attackerHealth.setCurrentValue(Math.min(20, attackerHealth.currentValue + 2));
-        attacker.onScreenDisplay.setActionBar('§r[§cLeeching§r]');
+        displayOnActionbar(player, '§r[§cLeeching§r]', 40, 0)
         
         const dimension = world.getDimension(attacker.dimension.id);
         const { x, y, z } = attacker.location;

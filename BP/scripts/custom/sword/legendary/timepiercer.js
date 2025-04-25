@@ -1,5 +1,5 @@
 import { world, system, TicksPerSecond } from '@minecraft/server';
-import { hasLoreInHeldItem } from '../../../utils/utils.js';
+import { hasLoreInHeldItem, displayOnActionbar } from '../../../utils/utils.js';
 
 world.afterEvents.entityHurt.subscribe((event) => {
     if (event.damageSource.cause !== "entityAttack") return;
@@ -10,7 +10,7 @@ world.afterEvents.entityHurt.subscribe((event) => {
     if (!attacker || !attacker.isValid()) return;
     if (!hasLoreInHeldItem(attacker, 'timepiercer')) return;
 
-    attacker.onScreenDisplay.setActionBar('§r[§2Timepiercer§r]');
+    displayOnActionbar(attacker, '§r[§2Timepiercer§r]', 40, 0)
 
     const { x: hx, y: hy, z: hz } = damagedEntity.location;
     const { x: yaw, y: pitch } = damagedEntity.getRotation();
@@ -18,7 +18,7 @@ world.afterEvents.entityHurt.subscribe((event) => {
     if (damagedEntity.typeId === 'minecraft:player') {
         damagedEntity.inputPermissions.setPermission("movement", false);
         damagedEntity.inputPermissions.setPermission("camera", false);
-        damagedEntity.onScreenDisplay.setActionBar('§r[§2You have been Timepierced§r]');
+        displayOnActionbar(attacker, '§r[§2You have been Timepierced§r]', 40, 21)
     }
 
     let ticks = 0;

@@ -1,5 +1,5 @@
 import { world, system, ItemStack } from '@minecraft/server';
-import { hasLoreInHeldItem } from '../../../utils/utils.js';
+import { hasLoreInHeldItem, displayOnActionbar } from '../../../utils/utils.js';
 
 const oreBlocks = new Set([
   'minecraft:coal_ore',
@@ -55,6 +55,6 @@ world.afterEvents.playerBreakBlock.subscribe(({ player, brokenBlockPermutation, 
     block.dimension.spawnItem(itemStack, blockPos);
 
     player.playSound('random.orb');
-    player.onScreenDisplay.setActionBar('§r[§gProspector§r]');
-  }, 5);
+    displayOnActionbar(player, '§r[§gProspector§r]', 40, 1)
+  }, 1);
 });

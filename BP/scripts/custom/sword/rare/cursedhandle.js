@@ -1,12 +1,13 @@
 import { world } from '@minecraft/server';
-import { hasLoreInHeldItem } from '../../../utils/utils.js';
+import { hasLoreInHeldItem, displayOnActionbar } from '../../../utils/utils.js';
 
 function applyCursedHandleEffect(player) {
     if (!hasLoreInHeldItem(player, 'cursed handle')) return;
     if (Math.random() < 0.01) {
         const health = player.getComponent('minecraft:health');
         health.setCurrentValue(3);
-        player.onScreenDisplay.setActionBar('§r[§uCursed Handle§r]');
+        displayOnActionbar(player, '§r[§4Cursed Handle§r]', 40, 0)
+        
         const dimension = world.getDimension(player.dimension.id);
         const { x, y, z } = player.location;
         const offsets = [

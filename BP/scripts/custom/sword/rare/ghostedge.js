@@ -1,5 +1,5 @@
-import { world, system, Player, TicksPerSecond } from '@minecraft/server';
-import { hasLoreInHeldItem } from '../../../utils/utils.js';
+import { world, system, Player } from '@minecraft/server';
+import { hasLoreInHeldItem, displayOnActionbar } from '../../../utils/utils.js';
 
 world.afterEvents.entityHurt.subscribe((event) => {
     if (event.damageSource.cause !== "entityAttack") return;
@@ -13,5 +13,7 @@ world.afterEvents.entityHurt.subscribe((event) => {
 
     system.runTimeout(() => {
         damagedEntity.applyDamage(damage * 1.25, {cause:"entityAttack", damagingEntity: attacker});
-    }, TicksPerSecond * 0.5);
+    }, 10);
+
+    displayOnActionbar(player, '§r[§tGhostedge§r]', 40, 0)
 });

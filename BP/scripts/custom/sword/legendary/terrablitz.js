@@ -1,5 +1,5 @@
-import { world, TicksPerSecond } from '@minecraft/server';
-import { hasLoreInHeldItem, toAllPlayers } from '../../../utils/utils.js';
+import { TicksPerSecond } from '@minecraft/server';
+import { hasLoreInHeldItem, toAllPlayers, displayOnActionbar } from '../../../utils/utils.js';
 
 function applyTerrablitz(player) {
     if (!hasLoreInHeldItem(player, "terra")) return;  
@@ -7,7 +7,7 @@ function applyTerrablitz(player) {
     player.addEffect("speed", TicksPerSecond * 2, { amplifier: 6, showParticles: false });        
     player.addEffect("jump_boost", TicksPerSecond * 2, { amplifier: 2, showParticles: false });        
   
-    player.onScreenDisplay.setActionBar('§r[§qTerrablitz§r]');
+    displayOnActionbar(player, '§r[§qTerrablitz§r]', 40, 0)
     player.playSound('beacon.activate');
 
     const dimension = player.dimension;

@@ -1,5 +1,5 @@
 import { world, system } from '@minecraft/server';
-import { hasLoreInHeldItem } from '../../../utils/utils.js';
+import { hasLoreInHeldItem, displayOnActionbar } from '../../../utils/utils.js';
 
 world.afterEvents.entityHurt.subscribe((event) => {
     if (event.damageSource.cause !== "entityAttack") return;
@@ -12,7 +12,7 @@ world.afterEvents.entityHurt.subscribe((event) => {
     if (!hasLoreInHeldItem(attacker, 'silkbind')) return;
 
     if (Math.random() < 0.1) {
-        attacker.onScreenDisplay.setActionBar('§r[§rSilkbind§r]');
+        displayOnActionbar(player, '§r[§rSilkbind§r]', 40, 0)
 
         const dimension = world.getDimension(damagedEntity.dimension.id);
         const { x, y, z } = damagedEntity.location;

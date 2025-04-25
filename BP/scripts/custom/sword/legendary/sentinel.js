@@ -1,4 +1,4 @@
-import { hasLoreInHeldItem, toAllPlayers } from '../../../utils/utils.js';
+import { hasLoreInHeldItem, toAllPlayers, displayOnActionbar } from '../../../utils/utils.js';
 
 const excludeEntities = new Set([
     "minecraft:item", "minecraft:agent", "minecraft:area_effect_cloud", "minecraft:armor_stand", "minecraft:arrow", "minecraft:boat",
@@ -15,7 +15,7 @@ function applyForcefield(player) {
     if (!hasLoreInHeldItem(player, "sentinel")) return;
     if (player.isSneaking) return;
 
-    player.onScreenDisplay.setActionBar('§r[§sSentinel Active§r]');
+    displayOnActionbar(plaayer, '§r[§sSentinel Active§r]', 40, 0)
     player.playSound('beacon.activate');
 
     const dimension = player.dimension;

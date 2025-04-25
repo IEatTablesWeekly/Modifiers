@@ -1,5 +1,5 @@
 import { world } from '@minecraft/server';
-import { hasLoreInHeldItem } from '../../../utils/utils.js';
+import { hasLoreInHeldItem, displayOnActionbar } from '../../../utils/utils.js';
 
 world.afterEvents.entityHurt.subscribe((event) => {
 
@@ -18,4 +18,5 @@ world.afterEvents.entityHurt.subscribe((event) => {
     if (!health) return;
     
     health.setCurrentValue(Math.max(0, health.currentValue + 1));
+    displayOnActionbar(attacker, '§r[§7Dull§r]', 40, 0)
 });

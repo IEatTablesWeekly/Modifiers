@@ -1,5 +1,5 @@
 import { world } from '@minecraft/server';
-import { hasLoreInHeldItem } from '../../../utils/utils.js';
+import { hasLoreInHeldItem, displayOnActionbar } from '../../../utils/utils.js';
 
 function tryApplyUnstable(player) {
     if (!hasLoreInHeldItem(player, "unstable")) return;
@@ -9,7 +9,8 @@ function tryApplyUnstable(player) {
         if (!inventory) return;
 
         player.playSound('random.break');
-        player.onScreenDisplay.setActionBar('§r[§7Brittle§r]');
+        displayOnActionbar(player, '§r[§7Brittle§r]', 40, 0)
+
         inventory.setItem(player.selectedSlotIndex, null);
     }
 }

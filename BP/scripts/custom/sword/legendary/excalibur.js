@@ -1,15 +1,5 @@
 import { world } from "@minecraft/server";
-import { hasLoreInHeldItem } from "../../../utils/utils.js";
-
-function extractFirstNumberFromLore(loreLines) {
-    for (const line of loreLines) {
-        const match = line.match(/(\d+)/);
-        if (match) {
-            return parseInt(match[1]);
-        }
-    }
-    return null;
-}
+import { hasLoreInHeldItem, extractFirstNumberFromLore, displayOnActionbar } from "../../../utils/utils.js";
 
 world.afterEvents.entityHurt.subscribe((event) => {
     if (event.damageSource.cause !== "entityAttack") return;
@@ -35,4 +25,5 @@ world.afterEvents.entityHurt.subscribe((event) => {
 
     const newHealth = Math.max(0, healthComp.currentValue - extraDamage);
     healthComp.setCurrentValue(newHealth);
+    displayOnActionbar(attacker, '§r[§uExcalibur§r]', 40, 0)
 });

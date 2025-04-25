@@ -1,5 +1,5 @@
-import { world, system, ItemStack, ItemTypes, BlockTypes } from '@minecraft/server';
-import { hasLoreInHeldItem } from '../../../utils/utils.js';
+import { world, system, ItemStack, ItemTypes } from '@minecraft/server';
+import { hasLoreInHeldItem, displayOnActionbar } from '../../../utils/utils.js';
 
 const targetBlocks = [
   'minecraft:stone',
@@ -45,6 +45,7 @@ function getWeightedRandomItem() {
 world.afterEvents.playerBreakBlock.subscribe(event => {
   const { player, brokenBlockPermutation, block } = event;
   const blockId = brokenBlockPermutation.type.id;
+  if (Math.random > 0.2) return;
 
   if (!targetBlocks.includes(blockId)) return;
   if (!hasLoreInHeldItem(player, 'midas')) return;
@@ -60,7 +61,7 @@ world.afterEvents.playerBreakBlock.subscribe(event => {
         block.dimension.spawnItem(drop.item, pos);
         const readableName = toTitleCase(drop.id.replace("minecraft:", "").replace(/_/g, " "));
         const colorCode = `§${drop.color}`;
-        player.onScreenDisplay.setActionBar(`[§eMidas Touch §r| ${colorCode}${drop.amount}x ${readableName}§r]`);
+        displayOnActionbar(player, `[§eMidas Touch §r| ${colorCode}${drop.amount}x ${readableName}§r]`, 40, 1)
         player.playSound('random.orb');
       }
   }, 5);

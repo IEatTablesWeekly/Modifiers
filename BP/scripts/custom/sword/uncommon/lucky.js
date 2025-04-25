@@ -1,5 +1,5 @@
 import { world, system, ItemStack, ItemTypes } from '@minecraft/server';
-import { hasLoreInHeldItem } from '../../../utils/utils.js';
+import { hasLoreInHeldItem, displayOnActionbar } from '../../../utils/utils.js';
 
 const lootTable = [
   { id: 'minecraft:coal', weight: 40, min: 1, max: 3, color: '7' },
@@ -50,7 +50,7 @@ world.afterEvents.entityHurt.subscribe((event) => {
   
         const readableName = toTitleCase(drop.id.replace("minecraft:", "").replace(/_/g, " "));
         const colorCode = `§${drop.color}`;
-        attacker.onScreenDisplay.setActionBar(`[§gLucky §r| ${colorCode}${drop.amount}x ${readableName}§r]`);
+        displayOnActionbar(attacker, `[§gLucky §r| ${colorCode}${drop.amount}x ${readableName}§r]`, 40, 0)
         attacker.playSound('random.orb')
       }
     }

@@ -1,4 +1,4 @@
-import { hasLoreInHeldItem , toAllPlayers } from '../../../utils/utils.js';
+import { hasLoreInHeldItem , toAllPlayers, displayOnActionbar } from '../../../utils/utils.js';
 import { world , TicksPerSecond } from '@minecraft/server'
 
 function tryApplyGlassEdgeBuff(player) {
@@ -23,7 +23,7 @@ function tryApplyGlassEdgeDebuff(player) {
       durability.damage = Math.min(durability.damage + damageAmount, maxDurability);
       inventory.setItem(selectedSlot, item);
       player.playSound('random.break');
-      player.onScreenDisplay.setActionBar('§r[§pGlass Edge§r]');
+      displayOnActionbar(player, '§r[§pGlass Edge§r]', 40, 1)
   }
   
 }

@@ -1,5 +1,5 @@
 import { world } from '@minecraft/server';
-import { hasLoreInHeldItem } from '../../../utils/utils.js';
+import { hasLoreInHeldItem, displayOnActionbar } from '../../../utils/utils.js';
 
 function tryApplyCracked(player) {
     if (Math.random() > 0.2) return;
@@ -23,7 +23,8 @@ function tryApplyCracked(player) {
         inventory.setItem(selectedSlot, item);
 
         player.playSound('random.break');
-        player.onScreenDisplay.setActionBar('§r[§nItem Cracked§r]');
+        displayOnActionbar(player, '§r[§nItem Cracked§r]', 40, 0)
+
     }
 }
 
