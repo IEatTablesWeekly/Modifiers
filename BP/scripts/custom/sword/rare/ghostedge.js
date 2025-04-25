@@ -7,13 +7,13 @@ world.afterEvents.entityHurt.subscribe((event) => {
     const damagedEntity = event.hurtEntity;
     const attacker = event.damageSource.damagingEntity;
     const damage = event.damage;
-
-    if (!attacker || !(attacker instanceof Player)) return;
     if (!hasLoreInHeldItem(attacker, 'ghostedge')) return;
 
+    if (!attacker || !(attacker instanceof Player)) return;
+
     system.runTimeout(() => {
-        damagedEntity.applyDamage(damage * 1.25, {cause:"entityAttack", damagingEntity: attacker});
+        damagedEntity.applyDamage(damage * 1.25);
     }, 10);
 
-    displayOnActionbar(player, '§r[§tGhostedge§r]', 40, 0)
+    displayOnActionbar(attacker, '§r[§aGhostedge§r]', 40, 0)
 });
