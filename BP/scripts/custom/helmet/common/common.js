@@ -1,1 +1,2 @@
-import "./sturdy"
+import "./sturdylining"
+import "./foggymind"
