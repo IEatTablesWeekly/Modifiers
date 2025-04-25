@@ -5,7 +5,7 @@ import { TicksPerSecond } from '@minecraft/server'
 function tryApplyClearSight(player) {
     if (!hasLoreInEquippedItem(player, 'clear sight', EquipmentSlot.Head)) return;
 
-    player.addEffect("night_vision", TicksPerSecond * 2, { amplifier: 0, showParticles: false });
+    player.addEffect("night_vision", TicksPerSecond * 12, { amplifier: 0, showParticles: false });
     displayOnActionbar(player, '§r[§9Clear Sight§r]', 40, 5)
 }
 
