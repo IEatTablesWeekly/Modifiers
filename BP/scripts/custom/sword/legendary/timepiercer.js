@@ -18,7 +18,7 @@ world.afterEvents.entityHurt.subscribe((event) => {
     if (damagedEntity.typeId === 'minecraft:player') {
         damagedEntity.inputPermissions.setPermission("movement", false);
         damagedEntity.inputPermissions.setPermission("camera", false);
-        displayOnActionbar(attacker, '§r[§2You have been Timepierced§r]', 40, 21)
+        displayOnActionbar(damagedEntity, '§r[§2You have been Timepierced§r]', 40, 21)
     }
 
     let ticks = 0;
