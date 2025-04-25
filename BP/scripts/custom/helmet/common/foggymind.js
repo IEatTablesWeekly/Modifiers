@@ -9,4 +9,4 @@ function tryApplyFoggyMind(player) {
     displayOnActionbar(player, '§r[§7Foggy Mind§r]', 40, 5)
 }
 
-toAllPlayers(tryApplyFoggyMind, TicksPerSecond)
+toAllPlayers(tryApplyFoggyMind, TicksPerSecond * 45)
