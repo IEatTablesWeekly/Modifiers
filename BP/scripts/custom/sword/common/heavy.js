@@ -1,3 +1,4 @@
+import { TicksPerSecond } from "@minecraft/server"
 import { hasLoreInHeldItem, toAllPlayers, displayOnActionbar } from '../../../utils/utils.js';
 
 function tryApplyHeavy(player) {
