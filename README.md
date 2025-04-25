@@ -1,10 +1,97 @@
-# 🔧 Modifiers Add-on
+<h1 align="center">🔧 Modifiers Add-on</h1>
+<p align="center">
+  <b>A dynamic modifier system for Minecraft Bedrock Edition tools and armor</b>
+</p>
 
-The **Modifiers** Add-on for *Minecraft Bedrock Edition* introduces a dynamic system of **randomly-assigned modifiers** to tools and armor. These modifiers provide small **buffs** or **debuffs**, adding an exciting layer of progression and unpredictability to your gameplay.
+<p align="center">
+  <a href="https://mcpedl.com/"><img src="https://img.shields.io/badge/Download-MCPEDL-blue?style=for-the-badge&logo=appveyor" /></a>
+  <a href="https://github.com/your-repo/releases"><img src="https://img.shields.io/badge/Download-GitHub-black?style=for-the-badge&logo=github" /></a>
+  <a href="https://modbay.org/"><img src="https://img.shields.io/badge/Download-ModBay-red?style=for-the-badge" /></a>
+  <a href="https://mediafire.com/"><img src="https://img.shields.io/badge/Download-Mediafire-lightblue?style=for-the-badge" /></a>
+  <a href="https://curseforge.com/"><img src="https://img.shields.io/badge/Download-CurseForge-orange?style=for-the-badge&logo=curseforge" /></a>
+</p>
 
-Equip a sword with enhanced speed, or maybe a helmet that slightly reduces your max health — the possibilities keep every item feel fresh and unique!
+---
 
-🎮 **Fully compatible with Minecraft Bedrock 1.21**
+## 🧩 What is Modifiers?
 
-🧪 Ideal for survival, RPG-style worlds, or custom modpacks looking for more variety and depth.
+The **Modifiers** Add-on for *Minecraft Bedrock Edition* introduces a system of **randomly-assigned modifiers** to tools and armor. Each item has a chance to gain a **buff** or **debuff**, creating unique gear every time and enhancing the gameplay loop with a touch of randomness and RPG flavor.
+
+🎮 *Drop it in and play — no setup or experimental toggles needed!*
+
+---
+
+## ✨ Features
+
+- 🎲 **Random Modifiers** on crafted and looted tools & armor
+- ⚔️ **Buffs or Debuffs** applied on item equip
+- 📊 **Rarity Tiers** for items: Common → Legendary
+- 📝 Modifiers visible on **actionbar** and **item lore**
+- 🧠 Built with both **JS scripting** and **JSON components**
+- 🧰 **Works in multiplayer**, fully survival-compatible
+- 🔄 Retains modifiers when enchanted, renamed, or repaired
+- 🧪 MIT licensed for free use and modification
+
+---
+
+## 🎖️ Modifier Rarity Chances
+
+| Rarity     | Chance  | Restrictions                       |
+|------------|---------|------------------------------------|
+| Common     | 40%     | All tools & armor                  |
+| Uncommon   | 30%     | All tools & armor                  |
+| Rare       | 20%     | All tools & armor                  |
+| Epic       | 8%      | Only Diamond & Netherite gear      |
+| Legendary  | 2%      | Only Diamond & Netherite gear      |
+
+---
+
+## ⚠️ Compatibility & Known Issues
+
+- ❗ Uses the **actionbar** to display modifiers.
+- ❌ May conflict with other add-ons that also use the actionbar for GUI.
+- ✅ Does **not** use `player.json` or experimental toggles.
+- ✅ Fully functional in **multiplayer** and **realms**.
+
+---
+
+## 📦 Installation
+
+1. Download the `.mcaddon` file from any of the links above.
+2. Open it to automatically import into Minecraft.
+3. Add the pack to your world (Behavior & Resource).
+4. Start your world — modifiers will apply automatically!
+
+---
+
+## 🔧 Developer Guide
+
+Want to create your own modifiers or expand the system?
+
+Check out the [Developer Wiki](#) (Coming Soon) to learn how to:
+- Add custom buffs/debuffs
+- Adjust modifier rarity chances
+- Hook into the system with other add-ons
+
+---
+
+## 🧾 Changelog
+
+### v1.0.0 - Initial Release
+- Added randomly assigned modifiers with rarity system
+- Compatibility with tools & armor (crafting + loot)
+- Full multiplayer support
+- Lore + actionbar UI integration
+
+---
+
+## 📃 License
+
+This project is licensed under the MIT License — you're free to use, modify, and distribute it.
+
+---
+
+> 💬 Want to contribute or report a bug? Open an issue or pull request on GitHub!
+
+
 
