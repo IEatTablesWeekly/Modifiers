@@ -14,11 +14,11 @@
 
 ## What is Modifiers?
 
-The **Modifiers** Add-on for *Minecraft Bedrock Edition* introduces a system of **randomly-assigned modifiers** to tools and armor. Each item has a chance to gain a **buff** or **debuff**, creating unique gear every time and enhancing the gameplay loop with a touch of randomness and RPG flavor.
+The **Modifiers** Add-on for *Minecraft Bedrock Edition* introduces a system of **randomly-assigned modifiers** to tools and armor. Each item has a chance to gain a **buff** or **debuff**, creating unique gear every time and enhancing the gameplay loop with a touch of randomness and RPG flavor. Inspiried by the Modifiers mod by Cursed1nferno on *Minecraft Java Edition*. 
 
 ---
 
-## Features
+## 🧩 Features
 
 - **Random Modifiers** on all tools & armor
 - **Buffs or Debuffs** applied on item equip
@@ -26,11 +26,12 @@ The **Modifiers** Add-on for *Minecraft Bedrock Edition* introduces a system of 
 - Modifiers visible on **actionbar** and **item lore**
 - **Works in multiplayer**, fully survival-compatible
 - Retains modifiers when enchanted, renamed, or repaired
+- Fully compatible with other add-ons that add new enchantments.
 - MIT licensed for free use and modification
 
 ---
 
-## Modifier Rarity Chances
+## 🎖️ Rarity Chances
 
 | Rarity     | Chance  | Restrictions                       |
 |------------|---------|------------------------------------|
@@ -53,7 +54,7 @@ The **Modifiers** Add-on for *Minecraft Bedrock Edition* introduces a system of 
 
 ---
 
-## Installation
+## 📦 Installation
 
 1. Download the `.mcaddon` file from any of the links above.
 2. Open it to automatically import into Minecraft.
@@ -62,14 +63,11 @@ The **Modifiers** Add-on for *Minecraft Bedrock Edition* introduces a system of 
 
 ---
 
-## Developer Guide
+## 🔧 Developer Guide
 
 Want to create your own modifiers or expand the system?
 
-Check out the [Developer Wiki](#) (Coming Soon) to learn how to:
-- Add custom buffs/debuffs
-- Adjust modifier rarity chances
-- Hook into the system with other add-ons
+- Check out the developer_guide.txt file!
 
 ---
 
