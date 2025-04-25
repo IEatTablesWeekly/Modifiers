@@ -7,17 +7,13 @@ world.afterEvents.entityHurt.subscribe((event) => {
     const damage = event.damage;
 
     if (!hasLoreInEquippedItem(damagedEntity, 'aegis', EquipmentSlot.Head)) return;
-
-    const amplifierSource = attacker?.getComponent('minecraft:health')?.currentValue ?? 8;
-    const amplifier = Math.floor(amplifierSource / 10);
-    const cappedAmplifier = Math.min(amplifier, 2);
     
     system.runTimeout(() => {
         if (!damagedEntity || !damagedEntity.isValid()) return;
         damagedEntity.playSound('bubble.pop');
-        damagedEntity.addEffect('absorption', TicksPerSecond * 3, { amplifier });
-        damagedEntity.addEffect('regeneration', TicksPerSecond * 3, { amplifier: cappedAmplifier });
-    }, TicksPerSecond);
+        damagedEntity.addEffect('absorption', TicksPerSecond * 5, { amplifier: 0 });
+        displayOnActionbar(damagedEntity, '§r[§qAegis§r]', 40, 5)
+    }, TicksPerSecond * 2.5);
     
 
     if (attacker && attacker.isValid()) {
@@ -25,8 +21,6 @@ world.afterEvents.entityHurt.subscribe((event) => {
         const currentValue = attacker.getComponent('minecraft:health').currentValue;
         attacker.getComponent('minecraft:health').setCurrentValue(currentValue - damage * 0.5);
     }
-
-    displayOnActionbar(player, '§r[§qAegis§r]', 40, 5)
 
     const dimension = world.getDimension(damagedEntity.dimension.id);
     const { x, y, z } = damagedEntity.location;
