@@ -2,7 +2,7 @@ import "./ability";
 import { toAllPlayers, processInventoryWithModifiers } from "../../utils/utils";
 
 const helmetKeywords = [
-    "helmet", "mask", "head"
+    "helmet", "mask", "head", "cap", "hat"
 ];
 
 const ABILITIES = {
@@ -24,10 +24,10 @@ const ABILITIES = {
       { name: "Mind Ward", description: "- [§a+§7§o] Immune to mind-altering effects (blindness, nausea).", color: "§r§b" },
       { name: "Incandescent", description: "- [§a+§7§o] Helmet glows brightly, illuminating surroundings.", color: "§r§4" },
       { name: "Clear Sight", description: "- [§a+§7§o] Grants night vision in dark areas.", color: "§r§7" },
-      { name: "Iron Mind", description: "- [§a+§7§o] Protects the user from all negative potion effects.", color: "§r§g" },
+      { name: "Cleansing Veil", description: "- [§a+§7§o] Protects the user from all negative potion effects.", color: "§r§g" },
   ],
   legendary: [
-      { name: "Third Eye", description: "- [§a+§7§o] See invisible entities nearby.", color: "§r§e" },
+      { name: "Propeller Hat", description: "- [§a+§7§o] You have a properller on your hat, causing \nyou to float when you look down and sneak.", color: "§r" },
       { name: "Aura of Dread", description: "- [§a+§7§o] Looking at an enemy will cause them to be frightened.", color: "§r§8" },
       { name: "Aegis", description: "- [§a+§7§o] Creates a protective aura around the user,\n reflecting all damage and healing them significantly,\neffectively making them immortal.", color: "§r§q" },
   ]
