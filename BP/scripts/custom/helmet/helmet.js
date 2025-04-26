@@ -11,17 +11,14 @@ const ABILITIES = {
       { name: "Foggy Mind", description: "- [§c-§7§o] Occasionally distorts your vision randomly.", color: "§r§7" },
   ],
   uncommon: [
-      { name: "Iron Mind", description: "- [§a+§7§o] 10% chance to resist negative potion effects.", color: "§r§g" },
-      { name: "Panic", description: "- [§c-§7§o] Sprinting for too long causes confusion.", color: "§r§q" },
       { name: "Focus", description: "- [§a+§7§o] Standing still grants Resistance II.", color: "§r§5" },
   ],
   rare: [
       { name: "Unbreakable", description: "- [§a+§7§o] This item is unbreakable and will never break.", color: "§r§9" },
-      { name: "Dread Veil", description: "- [§c-§7§o] Occasionally blinds enemies who hit you.", color: "§r§s" },
-      { name: "Bloodguard", description: "- [§a+§7§o] Gain brief regeneration after taking critical damage.", color: "§r§r" }
+      { name: "Dread Veil", description: "- [§c-§7§o] Occasionally blinds enemies who hit you.", color: "§r§8" },
+      { name: "Bloodguard", description: "- [§a+§7§o] Gain brief regeneration after taking damage.", color: "§r§c" }
   ],
   epic: [
-      { name: "Mind Ward", description: "- [§a+§7§o] Immune to mind-altering effects (blindness, nausea).", color: "§r§b" },
       { name: "Incandescent", description: "- [§a+§7§o] Helmet glows brightly, illuminating surroundings.", color: "§r§4" },
       { name: "Clear Sight", description: "- [§a+§7§o] Grants night vision in dark areas.", color: "§r§7" },
       { name: "Cleansing Veil", description: "- [§a+§7§o] Protects the user from all negative potion effects.", color: "§r§g" },
