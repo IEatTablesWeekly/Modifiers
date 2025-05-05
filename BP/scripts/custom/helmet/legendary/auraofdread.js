@@ -16,7 +16,7 @@ function applyAuraLogic(player) {
     if (!hasLoreInEquippedItem(player, 'aura of dread', EquipmentSlot.Head)) return;
 
     const ray = player.getEntitiesFromViewDirection({
-        maxDistance: 20,
+        maxDistance: 10,
         includeEntities: true,
         includeBlocks: false
     });
@@ -43,5 +43,5 @@ function applyAuraDisplay(player) {
     displayOnActionbar(player, '§r[§0Aura of Dread§r]', 40, 5);
 }
 
-toAllPlayers(applyAuraLogic, 4);
+toAllPlayers(applyAuraLogic, 1);
 toAllPlayers(applyAuraDisplay, 10);
