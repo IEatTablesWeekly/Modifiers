@@ -34,7 +34,11 @@ world.afterEvents.entityHurt.subscribe((event) => {
     ];
 
     for (const [dx, dy, dz] of offsets) {
-        dimension.runCommandAsync(`particle minecraft:falling_dust_dragon_egg_particle ${x + dx} ${y + dy} ${z + dz}`);
+        dimension.spawnParticle("minecraft:falling_dust_dragon_egg_particle", {
+            x: x + dx,
+            y: y + dy,
+            z: z + dz
+          });
     }
 
     const targetViewDir = damagedEntity.getViewDirection();
@@ -181,7 +185,7 @@ world.afterEvents.entityHurt.subscribe((event) => {
             facingLocation: damagedLoc,
         });
         const attackerViewDir = attacker.getViewDirection();
-        if (damagedEntity.isValid()) {
+        if (damagedEntity.isValid) {
             damagedEntity.applyKnockback(attackerViewDir.x, attackerViewDir.z, 1, 0.1);
         }
 
