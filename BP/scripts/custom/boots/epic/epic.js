@@ -1,0 +1,2 @@
+import "./doublejump"
+import "./magmawalker"
