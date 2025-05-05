@@ -12,7 +12,7 @@ world.afterEvents.entityHurt.subscribe((event) => {
     if (!hasLoreInHeldItem(attacker, 'silkbind')) return;
 
     if (Math.random() < 0.1) {
-        displayOnActionbar(player, '§r[§rSilkbind§r]', 40, 0)
+        displayOnActionbar(attacker, '§r[§rSilkbind§r]', 40, 0)
 
         const dimension = world.getDimension(damagedEntity.dimension.id);
         const { x, y, z } = damagedEntity.location;
