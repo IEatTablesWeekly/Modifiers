@@ -111,16 +111,17 @@ export function processInventoryWithModifiers(player, weaponKeywords, abilitiesB
             const ability = abilities[Math.floor(Math.random() * abilities.length)];
 
             try {
+                const typeIndicator = ability.type === "positive" ? "[§a+§7§o]" : "[§c-§7§o]";
+                const rawName = item.typeId.split(":")[1]?.replace(/_/g, " ") ?? "Weapon";
+                const formattedName = rawName.replace(/\b\w/g, c => c.toUpperCase());
+
                 item.setLore([
-                    `${ability.color}${ability.name}`,
-                    `§7${ability.description}`,
+                    `${ability.emoji} ${ability.color}${ability.name}`,
+                    `§7 - ${typeIndicator} ${ability.description}`,
                     `${rarity.color}${rarity.displayName}`
                 ]);
 
-                const rawName = item.typeId.split(":")[1]?.replace(/_/g, " ") ?? "Weapon";
-                const formattedName = rawName.replace(/\b\w/g, c => c.toUpperCase());
                 item.nameTag = `${rarity.color}${formattedName}`;
-
                 inventory.setItem(i, item);
             } catch (e) {
                 console.error("[IEatTablesWeekly][V1.0 Modifiers] Error while setting item metadata:", e);
@@ -130,6 +131,8 @@ export function processInventoryWithModifiers(player, weaponKeywords, abilitiesB
         console.error("[IEatTablesWeekly][V1.0 Modifiers] Error while accessing inventory:", err);
     }
 }
+
+
 
 /**
  * Generates a random integer
@@ -260,8 +263,6 @@ export function extractFirstNumberFromLore(loreLines) {
           }
       }
   }, 1);
-  
-
   
   
 
