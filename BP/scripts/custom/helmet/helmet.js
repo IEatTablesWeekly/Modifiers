@@ -6,28 +6,28 @@ const helmetKeywords = [
 ];
 
 const ABILITIES = {
-  common: [
-      { name: "Sturdy Lining", description: "- [§a+§7§o] 20% chance to ignore durability loss from damage.", color: "§r§7" },
-      { name: "Foggy Mind", description: "- [§c-§7§o] Occasionally distorts your vision randomly.", color: "§r§7" },
-  ],
-  uncommon: [
-      { name: "Focus", description: "- [§a+§7§o] Standing still grants Resistance II.", color: "§r§5" },
-  ],
-  rare: [
-      { name: "Unbreakable", description: "- [§a+§7§o] This item is unbreakable and will never break.", color: "§r§9" },
-      { name: "Dread Veil", description: "- [§c-§7§o] Occasionally blinds enemies who hit you.", color: "§r§8" },
-      { name: "Bloodguard", description: "- [§a+§7§o] Gain brief regeneration after taking damage.", color: "§r§c" }
-  ],
-  epic: [
-      { name: "Incandescent", description: "- [§a+§7§o] Helmet glows brightly, illuminating surroundings.", color: "§r§4" },
-      { name: "Clear Sight", description: "- [§a+§7§o] Grants night vision in dark areas.", color: "§r§7" },
-      { name: "Cleansing Veil", description: "- [§a+§7§o] Protects the user from all negative potion effects.", color: "§r§g" },
-  ],
-  legendary: [
-      { name: "Propeller Hat", description: "- [§a+§7§o] You have a properller on your hat, causing \nyou to float when you look down and sneak.", color: "§r" },
-      { name: "Aura of Dread", description: "- [§a+§7§o] Looking at an enemy will cause them to be frightened.", color: "§r§8" },
-      { name: "Aegis", description: "- [§a+§7§o] Creates a protective aura around the user,\n reflecting all damage and healing them significantly,\neffectively making them immortal.", color: "§r§q" },
-  ]
+    common: [
+        { name: "Sturdy Lining", description: "20% chance to ignore durability loss from damage.", type: "positive", color: "§r§7", emoji: "" },
+        { name: "Foggy Mind", description: "Occasionally distorts your vision randomly.", type: "negative", color: "§r§7", emoji: "" },
+    ],
+    uncommon: [
+        { name: "Focus", description: "Standing still grants Resistance II.", type: "positive", color: "§r§5", emoji: "" },
+    ],
+    rare: [
+        { name: "Unbreakable", description: "This item is unbreakable and will never break.", type: "positive", color: "§r§9", emoji: "" },
+        { name: "Dread Veil", description: "Occasionally blinds enemies who hit you.", type: "negative", color: "§r§8", emoji: "" },
+        { name: "Bloodguard", description: "Gain brief regeneration after taking damage.", type: "positive", color: "§r§c", emoji: "" },
+    ],
+    epic: [
+        { name: "Incandescent", description: "Helmet glows brightly, illuminating surroundings.", type: "positive", color: "§r§4", emoji: "" },
+        { name: "Clear Sight", description: "Grants night vision in dark areas.", type: "positive", color: "§r§7", emoji: "" },
+        { name: "Cleansing Veil", description: "Protects the user from all negative potion effects.", type: "positive", color: "§r§a", emoji: "" },
+    ],
+    legendary: [
+        { name: "Propeller Hat", description: "You have a propeller on your hat, causing you to float when you look down and sneak.", type: "positive", color: "§r§b", emoji: "" },
+        { name: "Aura of Dread", description: "Looking at an enemy will cause them to be frightened.", type: "positive", color: "§r§8", emoji: "" },
+        { name: "Aegis", description: "Creates a protective aura around the user, reflecting all damage and healing them significantly, effectively making them immortal.", type: "positive", color: "§r§d", emoji: "" },
+    ]
 };
 
 toAllPlayers(player => {
