@@ -14,6 +14,7 @@ Developed by:
 
  Testers:
  - GeorgeGamington
+ - rafaella555gr
 
 For enquiries or questions, contact IEatTablesWeekly on discord.
 This project is licensed under the MIT License.
